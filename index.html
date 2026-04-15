@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div id="game-container">
+        <div id="status-bar">
+            <span>目前位置：<span id="location">偵探事務所</span></span><br>
+            <span>背包：<span id="inventory-list">無</span></span>
+        </div>
+
+        <div id="scene">
+            <div id="narration">旁白：點擊下方對話開始故事...</div>
+            <div id="character-display"></div>
+        </div>
+
+        <div id="dialogue-box">
+            <h3 id="speaker-name">偵探</h3>
+            <p id="dialogue-text">我是一個偵探，但我與其他小說裡的偵探做的事不同...</p>
+            <button id="next-btn">下一步</button><br><br>
+        </div>
+        <div id="interaction-zone" class="hidden">
+            <button onclick="collectItem('舊照片')">撿起 [舊照片]</button>
+            <button onclick="collectItem('生鏽的鑰匙')">撿起 [生鏽的鑰匙]</button><br><br>
+        </div>
+        <div id="status-bar">
+            <span>目前位置：<span id="location">奶奶家</span></span><br><br>
+        </div>
+        <div id="interaction-zone" class="hidden">
+            <button onclick="collectItem('老電視')">撿起 [老電視]</button>
+            <button onclick="collectItem('時鐘')">抬頭看看時鐘 [時鐘]</button>
+            <button onclick="collectItem('遙控器')">撿起 [遙控器]</button>
+            <button onclick="collectItem('餐桌')">查看 [餐桌]</button>
+            <button onclick="collectItem('桌上小木盒')">撿起 [桌上小木盒]</button>
+            <button onclick="collectItem('不知名餅乾桶')">撿起 [不知名餅乾桶]</button>
+        </div>
+    <script src="script.js"></script>
+</body>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
