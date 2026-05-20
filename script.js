@@ -52,6 +52,51 @@ function showMessage4() {
         msg.style.display = "block";
     }
 }
+function showDialogue() {
+    document.getElementById("dialogueBox").style.display = "block";
+}
+
+let current = 1;
+function nextstep() {
+    document.getElementById("text1").style.display = "none";
+    document.getElementById("text2").style.display = "none";
+    document.getElementById("text3").style.display = "none";
+    document.getElementById("text4").style.display = "none";
+    document.getElementById("cookie1").style.display = "none";
+    document.getElementById("cookie2").style.display = "none";
+    document.getElementById("cookie3").style.display = "none";
+
+    current++;
+    if (current === 1) {
+        document.getElementById("text1").style.display = "block";
+    }
+
+    else if (current === 2) {
+        document.getElementById("cookie3").style.display = "block";
+    }
+
+    else if (current === 3) {
+        document.getElementById("text2").style.display = "block";
+    }
+
+    else if (current === 4) {
+        document.getElementById("cookie1").style.display = "block";
+    }
+
+    else if (current === 5) {
+        document.getElementById("text3").style.display = "block";
+    }
+
+    else if (current === 6) {
+        document.getElementById("cookie2").style.display = "block";
+    }
+
+    else if (current === 7) {
+        document.getElementById("text4").style.display = "block";
+    }
+}
+
+
 
 nextBtn.addEventListener('click', () => {
     currentStep++;

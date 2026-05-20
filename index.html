@@ -108,10 +108,64 @@
              ">
             嗯?看來需要知道密碼才能打開
         </div>
+        <div id="bucketpoint"
+             onclick="showDialogue()"
+             style="
+                position:absolute;
+                top:250px;
+                left:595px;
+                width:20px;
+                height:20px;
+                background:rgb(226, 71, 71);
+                border-radius:50%;
+                cursor:pointer;
+             ">
+        </div>
     </div>
     
     <img id="kitchen" src="kitchen.jpeg" alt="廚房照片" style="display: none;width:800px">
-    
+    <img id="cookie1" src="cookie1.jpeg" style="width:500px;display:none">
+    <img id="cookie2" src="cookie2.jpeg" style="width:500px;display:none">
+    <img id="cookie3" src="cookie3.jpeg" style="width:500px;display:none">
+    <div id="dialogueBox"
+     style="
+     width: 800px;
+     height: 300px;
+     background: black;
+     color: white;
+     padding: 30px;
+     margin-top: 20px;
+     display: none;
+     ">
+
+    <p id="text1">
+        ：這個黑色的方塊是什麼？<br>
+        ：這是最時髦的電視，你母親買的<br>
+        ：哇，媽媽好厲害！<br><br>
+        ：媽媽，現在可以看電視了嗎？<br>
+        ：還不行，等到吃完晚餐吧<br>
+        ：晚餐還要半個小時才會好耶⋯<br>
+    </p>
+    <p id="text2" style="display:none">
+        ：為什麼只有弟弟可以選節目？<br>
+    </p>
+    <p id="text3" style="display:none">
+        ：他還小，你多讓他一點<br>
+        ：你是女孩子，不讓弟弟看電視你還有理了？<br><br>
+        ：弟弟要看電視，你回房間去讀書！<br>
+        ：弟弟已經看一個小時了，該換我了吧<br>
+    </p>
+    <p id="text4" style="display:none">
+        ：你怎麼跟你母親一樣那麼小氣！
+        你如果下次考試沒有100分你就去嫁人，
+        你母親這個沒道德的人，有錢就說委屈離開了。<br>
+        ：你在那邊偷偷摸摸做什麼！你媽就是買了這個鬼東西才想離開我的！
+        我跟你說，我已經找到你對象，你下禮拜就直接去住那，提早熟悉服侍他！
+        我跟你講清楚，你被人家打，你也別想回來。<br>
+    </p>
+    <button onclick="nextstep()">Next</button>
+
+    </div>
     
     <div id="game-container">
         <div id="status-bar">
@@ -129,21 +183,7 @@
             <p id="dialogue-text">我是一個偵探，但我與其他小說裡的偵探做的事不同...</p>
             <button id="next-btn">下一步</button><br><br>
         </div>
-        <div id="interaction-zone" class="hidden">
-            <button onclick="collectItem('舊照片')">撿起 [舊照片]</button>
-            <button onclick="collectItem('生鏽的鑰匙')">撿起 [生鏽的鑰匙]</button><br><br>
-        </div>
-        <div id="status-bar">
-            <span>目前位置：<span id="location">奶奶家</span></span><br><br>
-        </div>
-        <div id="interaction-zone" class="hidden">
-            <button onclick="collectItem('老電視')">撿起 [老電視]</button>
-            <button onclick="collectItem('時鐘')">抬頭看看時鐘 [時鐘]</button>
-            <button onclick="collectItem('遙控器')">撿起 [遙控器]</button>
-            <button onclick="collectItem('餐桌')">查看 [餐桌]</button>
-            <button onclick="collectItem('桌上小木盒')">撿起 [桌上小木盒]</button>
-            <button onclick="collectItem('不知名餅乾桶')">撿起 [不知名餅乾桶]</button>
-        </div>
+        
     <script src="script.js"></script>
 </body>
 
