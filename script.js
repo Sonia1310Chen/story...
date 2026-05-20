@@ -20,6 +20,39 @@ const narration = document.getElementById('narration');
 speakerName.innerText = script[0].name;
 dialogueText.innerText = script[0].text;
 
+function showMessage1() {
+    const msg = document.getElementById("tvmessage");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+    } else {
+        msg.style.display = "block";
+    }
+}
+function showMessage2() {
+    const msg = document.getElementById("remotemessage");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+    } else {
+        msg.style.display = "block";
+    }
+}
+function showMessage3() {
+    const msg = document.getElementById("clockmessage");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+    } else {
+        msg.style.display = "block";
+    }
+}
+function showMessage4() {
+    const msg = document.getElementById("boxmessage");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+    } else {
+        msg.style.display = "block";
+    }
+}
+
 nextBtn.addEventListener('click', () => {
     currentStep++;
 
@@ -33,6 +66,8 @@ nextBtn.addEventListener('click', () => {
 
     } else {
         dialogueText.innerText = "請開始調查場景中的物品。";
+        document.getElementById("livrscene").style.display = "block";
+        
         nextBtn.style.display = "none";
     }
 });

@@ -4,6 +4,115 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
+    <div id="livrscene" style="display:none; position:relative; width:600px;">
+        <img id="livingroom" src="livingroom.jpeg" alt="客廳照片" style="width:800px">
+    
+        <div id="tvpoint"
+             onclick="showMessage1()"
+             style="
+                position:absolute;
+                top:190px;
+                left:335px;
+                width:20px;
+                height:20px;
+                background:rgb(226, 71, 71);
+                border-radius:50%;
+                cursor:pointer;
+             ">
+        </div>
+        <div id="tvmessage"
+             style="
+                display:none;
+                position:absolute;
+                top:230px;
+                left:300px;
+                background:white;
+                padding:5px;
+                border:1px solid black;
+             ">
+             開機了?!這麼老舊的電器居然還有功能啊
+        </div>
+        <div id="remotepoint"
+             onclick="showMessage2()"
+             style="
+                position:absolute;
+                top:250px;
+                left:335px;
+                width:20px;
+                height:20px;
+                background:rgb(226, 71, 71);
+                border-radius:50%;
+                cursor:pointer;
+             ">
+        </div>
+        <div id="remotemessage"
+             style="
+                display:none;
+                position:absolute;
+                top:230px;
+                left:300px;
+                background:white;
+                padding:5px;
+                border:1px solid black;
+             ">
+            用它來操控電視吧
+        </div>
+        <div id="clockpoint"
+             onclick="showMessage3()"
+             style="
+                position:absolute;
+                top:120px;
+                left:565px;
+                width:20px;
+                height:20px;
+                background:rgb(226, 71, 71);
+                border-radius:50%;
+                cursor:pointer;
+             ">
+        </div>
+        <div id="clockmessage"
+             style="
+                display:none;
+                position:absolute;
+                top:230px;
+                left:300px;
+                background:white;
+                padding:5px;
+                border:1px solid black;
+             ">
+             看來是個傳統的布穀鳥鐘，雖然很喜歡這種古老的工藝，但我還是第一次親眼看到布穀鳥鐘呢！據我所知在特定的時間布穀鳥會從小木門出來報時，這個鐘也是嗎？
+
+        </div>
+        <div id="boxpoint"
+             onclick="showMessage4()"
+             style="
+                position:absolute;
+                top:255px;
+                left:705px;
+                width:20px;
+                height:20px;
+                background:rgb(226, 71, 71);
+                border-radius:50%;
+                cursor:pointer;
+             ">
+        </div>
+        <div id="boxmessage"
+             style="
+                display:none;
+                position:absolute;
+                top:260px;
+                left:620px;
+                background:white;
+                padding:5px;
+                border:1px solid black;
+             ">
+            嗯?看來需要知道密碼才能打開
+        </div>
+    </div>
+    
+    <img id="kitchen" src="kitchen.jpeg" alt="廚房照片" style="display: none;width:800px">
+    
+    
     <div id="game-container">
         <div id="status-bar">
             <span>目前位置：<span id="location">偵探事務所</span></span><br>

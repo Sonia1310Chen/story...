@@ -1,0 +1,4 @@
+document.getElementById("livingroom").style.display = "none";
+document.getElementById("kitchen").style.display = "block";
+//changing background
+
