@@ -53,7 +53,12 @@ function showMessage4() {
     }
 }
 function showDialogue() {
-    document.getElementById("dialogueBox").style.display = "block";
+    const msg = document.getElementById("dialogueBox");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+    } else {
+        msg.style.display = "block";
+    }
 }
 
 let current = 1;
@@ -70,33 +75,99 @@ function nextstep() {
     if (current === 1) {
         document.getElementById("text1").style.display = "block";
     }
-
     else if (current === 2) {
         document.getElementById("cookie3").style.display = "block";
     }
-
     else if (current === 3) {
         document.getElementById("text2").style.display = "block";
     }
-
     else if (current === 4) {
         document.getElementById("cookie1").style.display = "block";
     }
-
     else if (current === 5) {
         document.getElementById("text3").style.display = "block";
     }
-
     else if (current === 6) {
         document.getElementById("cookie2").style.display = "block";
     }
-
     else if (current === 7) {
         document.getElementById("text4").style.display = "block";
+    }else if (current === 8) {
+        document.getElementById("exitstep").style.display = "block";
+    }
+}
+function exitsteps() {
+    document.getElementById("dialogueBox").style.display = "none";
+}
+function changetime() {
+    const msg1 = document.getElementById("smallpaper");
+    if (msg1.style.display === "block") {
+        msg1.style.display = "none";
+    }
+    const msg2 = document.getElementById("papertext");
+    if (msg2.style.display === "block") {
+        msg2.style.display = "none";
+    }
+    const msg3 = document.getElementById("timePicker");
+    if (msg3.style.display === "block") {
+        msg3.style.display = "none";
+    }
+    else{
+        document.getElementById("timePicker").style.display = "block";
+        const timePicker = document.getElementById("timePicker");
+        const result = document.getElementById("result");
+
+        timePicker.addEventListener("input", () => {
+            const selectedTime = timePicker.value;
+            console.log(selectedTime);
+            if (selectedTime === "19:30") {
+                document.getElementById("papertext").style.display = "block";
+                document.getElementById("smallpaper").style.display = "block";
+            }
+
+        });
+    }   
+}
+function remotecode() {
+    const msg1 = document.getElementById("passshape");
+    if (msg1.style.display === "block") {
+        msg1.style.display = "none";
+    }
+    const msg2 = document.getElementById("pad");
+    if (msg2.style.display === "block") {
+        msg2.style.display = "none";
+    }
+    const msg3 = document.getElementById("screen");
+    if (msg3.style.display === "block") {
+        msg3.style.display = "none";
+    }else{
+    document.getElementById("pad").style.display = "block";
+    document.getElementById("screen").style.display = "block";
+    }
+}
+let code = "";
+function press(number) {
+    if (code.length >= 4) return;
+    code += number;
+    document.getElementById("screen").innerText = code;
+    if (code.length === 4) {
+        checkCode();
     }
 }
 
+function checkCode() {
+    if (code === "1310") {
+        document.getElementById("passshape").style.display = "block";
+    }
+    else {
+        document.getElementById("result").innerHTML = "看來不是這個數字...試試看別的吧";
+    }
+}
 
+function clearCode() {
+    code = "";
+    document.getElementById("screen").innerText = "----";
+}
 
 nextBtn.addEventListener('click', () => {
     currentStep++;

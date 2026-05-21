@@ -24,7 +24,7 @@
              style="
                 display:none;
                 position:absolute;
-                top:230px;
+                top:200px;
                 left:300px;
                 background:white;
                 padding:5px;
@@ -33,7 +33,7 @@
              開機了?!這麼老舊的電器居然還有功能啊
         </div>
         <div id="remotepoint"
-             onclick="showMessage2()"
+             onclick="remotecode()"
              style="
                 position:absolute;
                 top:250px;
@@ -45,23 +45,12 @@
                 cursor:pointer;
              ">
         </div>
-        <div id="remotemessage"
-             style="
-                display:none;
-                position:absolute;
-                top:230px;
-                left:300px;
-                background:white;
-                padding:5px;
-                border:1px solid black;
-             ">
-            用它來操控電視吧
-        </div>
+        
         <div id="clockpoint"
              onclick="showMessage3()"
              style="
                 position:absolute;
-                top:120px;
+                top:203px;
                 left:565px;
                 width:20px;
                 height:20px;
@@ -121,12 +110,32 @@
                 cursor:pointer;
              ">
         </div>
+        <div id="changetimepoint"
+             onclick="changetime()"
+             style="
+                position:absolute;
+                top:120px;
+                left:565px;
+                width:20px;
+                height:20px;
+                background:rgb(226, 71, 71);
+                border-radius:50%;
+                cursor:pointer;
+             ">
+        </div>
+        <input type="time" id="timePicker" style="display:none">
+        <div id="result"></div>
     </div>
     
-    <img id="kitchen" src="kitchen.jpeg" alt="廚房照片" style="display: none;width:800px">
-    <img id="cookie1" src="cookie1.jpeg" style="width:500px;display:none">
-    <img id="cookie2" src="cookie2.jpeg" style="width:500px;display:none">
-    <img id="cookie3" src="cookie3.jpeg" style="width:500px;display:none">
+    <img id="kitchen" src="kitchen.jpeg" style="width:500px;display:none">
+
+    <div>
+        <img id="passshape" src="passshape.png" style="width:400px;display:none">
+        <img id="cookie1" src="cookie1.jpeg" style="width:500px;display:none">
+        <img id="cookie2" src="cookie2.jpeg" style="width:500px;display:none">
+        <img id="cookie3" src="cookie3.jpeg" style="width:500px;display:none">
+    </div>
+
     <div id="dialogueBox"
      style="
      width: 800px;
@@ -137,7 +146,6 @@
      margin-top: 20px;
      display: none;
      ">
-
     <p id="text1">
         ：這個黑色的方塊是什麼？<br>
         ：這是最時髦的電視，你母親買的<br>
@@ -164,9 +172,41 @@
         我跟你講清楚，你被人家打，你也別想回來。<br>
     </p>
     <button onclick="nextstep()">Next</button>
-
+    <button onclick="exitsteps()" id="exitstep" style="display:none">Exit</button>
     </div>
     
+    <div id="smallpaper"
+    style="
+    width: 400px;
+    height: 125px;
+    background: rgb(210, 210, 210);
+    color: rgb(0, 0, 0);
+    padding: 30px;
+    margin-top: 20px;
+    display: none;
+    ">
+    <p id="papertext" style="display:none">
+        <p style="font-size: 42px; font-family: 'Courier New', serif;">1310</p>
+    </p>
+    </div>
+
+    <div id="screen" style="display:none">----</div>
+
+    <div class="pad" id="pad" style="display:none">
+        <button onclick="press(1)">1</button>
+        <button onclick="press(2)">2</button>
+        <button onclick="press(3)">3</button><br>
+        <button onclick="press(4)">4</button>
+        <button onclick="press(5)">5</button>
+        <button onclick="press(6)">6</button><br>
+        <button onclick="press(7)">7</button>
+        <button onclick="press(8)">8</button>
+        <button onclick="press(9)">9</button><br>
+        <button onclick="clearCode()">C</button>
+        <button onclick="press(0)">0</button>
+    </div>
+    
+
     <div id="game-container">
         <div id="status-bar">
             <span>目前位置：<span id="location">偵探事務所</span></span><br>
@@ -184,6 +224,8 @@
             <button id="next-btn">下一步</button><br><br>
         </div>
         
+        
+
     <script src="script.js"></script>
 </body>
 

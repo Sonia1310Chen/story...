@@ -2,3 +2,16 @@ document.getElementById("livingroom").style.display = "none";
 document.getElementById("kitchen").style.display = "block";
 //changing background
 
+<div id="remotemessage"
+             style="
+                display:none;
+                position:absolute;
+                top:330px;
+                left:300px;
+                background:white;
+                padding:5px;
+                border:1px solid black;
+             ">
+            用它來操控電視吧
+        </div>
+//remote message not used
