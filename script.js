@@ -73,6 +73,7 @@ function checkPattern() {
     console.log(pattern);
     if (pattern === "0212") {
         document.getElementById("resulttt").innerHTML ="找到鑰匙了，帶著它走吧！";
+        document.getElementById("tokitchen").style.display = "block";
         document.getElementById("key").style.display = "block";
         collectItem('鑰匙');
     }
@@ -196,6 +197,14 @@ function checkCode() {
 function clearCode() {
     code = "";
     document.getElementById("screen").innerText = "----";
+}
+
+function tokitchen() {
+    document.getElementById("livingroomrelated").style.display = "none";
+    document.getElementById("livrscene").style.display = "none";
+    document.getElementById("shapelock").style.display = "none";
+    document.getElementById("resulttt").style.display = "none";
+    document.getElementById("kitchen").style.display = "block";
 }
 
 nextBtn.addEventListener('click', () => {
