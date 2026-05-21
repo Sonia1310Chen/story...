@@ -9,8 +9,6 @@ const script = [
 
 let currentStep = 0;
 let inventory = [];
-
-
 const speakerName = document.getElementById('speaker-name');
 const dialogueText = document.getElementById('dialogue-text');
 const nextBtn = document.getElementById('next-btn');
@@ -44,14 +42,45 @@ function showMessage3() {
         msg.style.display = "block";
     }
 }
-function showMessage4() {
-    const msg = document.getElementById("boxmessage");
+
+function shapelock() {
+    const msg = document.getElementById("shapelock");
     if (msg.style.display === "block") {
         msg.style.display = "none";
-    } else {
+    }
+    const msg1 = document.getElementById("key");
+    if (msg1.style.display === "block") {
+        msg1.style.display = "none";
+    } 
+    else {
         msg.style.display = "block";
+        nextShape(index);
     }
 }
+const shapes = ["○", "△", "□", "☆"];
+let current1 = [0, 0, 0, 0];
+function nextShape(index) {
+    current1[index]++;
+    if (current1[index] >= shapes.length) {
+        current1[index] = 0;
+    }
+    document.getElementById("slot" + index).innerText = shapes[current1[index]];
+    checkPattern();
+}
+
+function checkPattern() {
+    const pattern = current1.join("");
+    console.log(pattern);
+    if (pattern === "0212") {
+        document.getElementById("resulttt").innerHTML ="找到鑰匙了，帶著它走吧！";
+        document.getElementById("key").style.display = "block";
+        collectItem('鑰匙');
+    }
+    else {
+        document.getElementById("resulttt").innerHTML = "嗯?看來需要知道密碼才能打開";
+    }
+}
+
 function showDialogue() {
     const msg = document.getElementById("dialogueBox");
     if (msg.style.display === "block") {

@@ -6,7 +6,6 @@
   <body>
     <div id="livrscene" style="display:none; position:relative; width:600px;">
         <img id="livingroom" src="livingroom.jpeg" alt="客廳照片" style="width:800px">
-    
         <div id="tvpoint"
              onclick="showMessage1()"
              style="
@@ -73,7 +72,7 @@
 
         </div>
         <div id="boxpoint"
-             onclick="showMessage4()"
+             onclick="shapelock()"
              style="
                 position:absolute;
                 top:255px;
@@ -85,18 +84,7 @@
                 cursor:pointer;
              ">
         </div>
-        <div id="boxmessage"
-             style="
-                display:none;
-                position:absolute;
-                top:260px;
-                left:620px;
-                background:white;
-                padding:5px;
-                border:1px solid black;
-             ">
-            嗯?看來需要知道密碼才能打開
-        </div>
+        
         <div id="bucketpoint"
              onclick="showDialogue()"
              style="
@@ -129,11 +117,13 @@
     
     <img id="kitchen" src="kitchen.jpeg" style="width:500px;display:none">
 
-    <div>
+    <div id=livingrroomrealted>
         <img id="passshape" src="passshape.png" style="width:400px;display:none">
         <img id="cookie1" src="cookie1.jpeg" style="width:500px;display:none">
         <img id="cookie2" src="cookie2.jpeg" style="width:500px;display:none">
         <img id="cookie3" src="cookie3.jpeg" style="width:500px;display:none">
+        <img id="key" src="key.jpg" style="width:300px;display:none">
+
     </div>
 
     <div id="dialogueBox"
@@ -206,6 +196,14 @@
         <button onclick="press(0)">0</button>
     </div>
     
+    <div class="lock" id="shapelock" style="display:none">
+        <div class="slot" onclick="nextShape(0)" id="slot0">-</div>
+        <div class="slot" onclick="nextShape(1)" id="slot1">-</div>
+        <div class="slot" onclick="nextShape(2)" id="slot2">-</div>
+        <div class="slot" onclick="nextShape(3)" id="slot3">-</div>
+    </div>
+    
+    <div id="resulttt"></div>
 
     <div id="game-container">
         <div id="status-bar">
@@ -229,6 +227,4 @@
     <script src="script.js"></script>
 </body>
 
-    <script src="./script.js"></script>
-  </body>
 </html>
