@@ -115,7 +115,6 @@
         <div id="result"></div>
     </div>
     <button onclick="tokitchen()">jumptokitchen</button>
-    <img id="kitchen" src="kitchen.jpeg" style="width:800px;display:none">
 
     <div id=livingroomrelated>
         <img id="passshape" src="passshape.png" style="width:400px;display:none">
@@ -204,6 +203,173 @@
     </div>
     
     <div id="resulttt"></div>
+
+<div id="kitchenscene" style="display:none; position:relative; width:600px;">
+    <img id="kitchen" src="kitchen.jpeg" style="width:800px">
+    <img id="elfwords" src="elfwords.png" style="width:400px;display:none">
+    <div id="ovenpoint"
+        onclick="showMessage4()"
+        style="
+            position:absolute;
+            top:290px;
+            left:135px;
+            width:20px;
+            height:20px;
+            background:rgb(226, 71, 71);
+            border-radius:50%;
+            cursor:pointer;
+             ">
+        </div>
+    <div id="ovenmessage"
+        style="
+        display:none;
+        position:absolute;
+        top:190px;
+        left:80px;
+        background:white;
+        padding:5px;
+        border:1px solid black;
+        ">
+        很現代化的設備呢！<br>
+        不愧是有錢人家！委託人的奶奶小時候一定過得很幸福吧？<br>
+        不過說到這個，為什麼奶奶從來沒回來這個家呢？
+    </div>
+    <div id="stovepoint"
+        onclick="showMessage5()"
+        style="
+        position:absolute;
+        top:490px;
+        left:535px;
+        width:20px;
+        height:20px;
+        background:rgb(226, 71, 71);
+        border-radius:50%;
+        cursor:pointer;
+        ">
+    </div>
+    <div id="stovemessage"
+        style="
+        display:none;
+        position:absolute;
+        top:290px;
+        left:380px;
+        background:white;
+        padding:5px;
+        border:1px solid black;
+        ">
+        這個灶台雖然很老舊了狀態卻很好，<br>
+        看來這家人非常用心保養這些廚具，<br>
+        反觀我自己已經不知道用壞多少東西了，<br>
+        想想還真慚愧…
+    </div>
+    <div id="stovemessage2" style="display:none">嗯？側面的磚塊有裂痕？應該藏著某種訊息</div>
+        
+    <div id="moldpoint"
+        onclick="showMessage6()"
+        style="
+        position:absolute;
+        top:110px;
+        left:235px;
+        width:20px;
+        height:20px;
+        background:rgb(226, 71, 71);
+        border-radius:50%;
+        cursor:pointer;
+        ">
+    </div>
+    <div id="screen1" style="display:none">----</div>
+    <div class="pad" id="pad1" style="display:none">
+        <button onclick="press1(1)">1</button>
+        <button onclick="press1(2)">2</button>
+        <button onclick="press1(3)">3</button><br>
+        <button onclick="press1(4)">4</button>
+        <button onclick="press1(5)">5</button>
+        <button onclick="press1(6)">6</button><br>
+        <button onclick="press1(7)">7</button>
+        <button onclick="press1(8)">8</button>
+        <button onclick="press1(9)">9</button><br>
+        <button onclick="clearCode1()">C</button>
+        <button onclick="press1(0)">0</button>
+    </div>
+    <div id="moldpass" style="display:none">哇！這些是什麼東西？<br>
+        傳統糕點模具？<br>
+        月餅模具、紅龜粿、綠豆糕…紋路都好細緻，<br>
+        應該是非常珍貴的東西吧？怎麼會丟在這呢？<br>
+        這些東西不方便帶著走，先放著好了。
+    </div>
+    <div id="tablewarepoint"
+        onclick="showMessage7()"
+        style="
+        position:absolute;
+        top:450px;
+        left:100px;
+        width:20px;
+        height:20px;
+        background:rgb(226, 71, 71);
+        border-radius:50%;
+        cursor:pointer;
+        ">
+    </div>
+    <div id="twmessage"
+        style="
+        display:none;
+        position:absolute;
+        top:470px;
+        left:80px;
+        background:white;
+        padding:5px;
+        border:1px solid black;
+         ">
+        看起來只是一些碗盤……
+    </div>
+    <div id="kitchenwarepoint"
+        onclick="showMessage8()"
+        style="
+        position:absolute;
+        top:150px;
+        left:100px;
+        width:20px;
+        height:20px;
+        background:rgb(226, 71, 71);
+        border-radius:50%;
+        cursor:pointer;
+         ">
+    </div>
+    <div id="screen2" style="display:none">----</div>
+    <div class="pad" id="pad2" style="display:none">
+        <button onclick="press2(1)">1</button>
+        <button onclick="press2(2)">2</button>
+        <button onclick="press2(3)">3</button><br>
+        <button onclick="press2(4)">4</button>
+        <button onclick="press2(5)">5</button>
+        <button onclick="press2(6)">6</button><br>
+        <button onclick="press2(7)">7</button>
+        <button onclick="press2(8)">8</button>
+        <button onclick="press2(9)">9</button><br>
+        <button onclick="clearCode2()">C</button>
+        <button onclick="press2(0)">0</button>
+    </div>
+    <div id="kwpass" style="display:none">只是普通的廚具而已嘛，為何麼要大費周章鎖這個櫃子<br>…等等，這裡貼了一張便利貼？<br>
+        <div id="stickynote"
+            style="
+            width: 400px;
+            height: 125px;
+            background: rgb(199, 170, 151);
+            color: rgb(0, 0, 0);
+            padding: 30px;
+            margin-top: 20px;
+            display: none;
+            ">
+            <p id="stickynote" style="display:none">
+                <p style="font-size: 16px; font-family: 'Courier New', serif;">
+                    如果有人看到這張紙條，那容我感謝您，<br>
+                    我並無意這樣刁難你，只是往事必須隱藏，
+                    待我年老之時才能回來把記憶帶回。<br>去開右下角的櫃子吧，
+                    密碼是五月三十一日，建北電資聯合社展的日子。</p>
+            </p>
+        </div>
+    </div>
+</div>
 
     <div id="game-container">
         <div id="status-bar"><br>

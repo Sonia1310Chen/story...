@@ -43,6 +43,57 @@ function showMessage3() {
     }
 }
 
+function showMessage4() {
+    const msg = document.getElementById("ovenmessage");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+    } else {
+        msg.style.display = "block";
+    }
+}
+function showMessage5() {
+    const msg = document.getElementById("stovemessage");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+        document.getElementById("elfwords").style.display = "none";
+        document.getElementById("stovemessage2").style.display = "none";
+    } else {
+        msg.style.display = "block";
+        document.getElementById("elfwords").style.display = "block";
+        document.getElementById("stovemessage2").style.display = "block";
+    }
+}
+function showMessage6() {
+    const msg = document.getElementById("pad1");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+        document.getElementById("screen1").style.display = "none";
+        document.getElementById("moldpass").style.display = "none";
+    } else {
+        msg.style.display = "block";
+        document.getElementById("screen1").style.display = "block";
+    }
+}
+function showMessage7() {
+    const msg = document.getElementById("twmessage");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+    } else {
+        msg.style.display = "block";
+    }
+}
+function showMessage8() {
+    const msg = document.getElementById("pad2");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+        document.getElementById("screen2").style.display = "none";
+        document.getElementById("kwpass").style.display = "none";
+    } else {
+        msg.style.display = "block";
+        document.getElementById("screen2").style.display = "block";
+        document.getElementById("kwpass").style.display = "none";
+    }
+}
 function shapelock() {
     const msg = document.getElementById("shapelock");
     if (msg.style.display === "block") {
@@ -73,7 +124,7 @@ function checkPattern() {
     console.log(pattern);
     if (pattern === "0212") {
         document.getElementById("resulttt").innerHTML ="找到鑰匙了，帶著它走吧！";
-        document.getElementById("tokitchen").style.display = "block";
+        document.getElementById("kitchenscene").style.display = "block";
         document.getElementById("key").style.display = "block";
         collectItem('鑰匙');
     }
@@ -184,7 +235,6 @@ function press(number) {
         checkCode();
     }
 }
-
 function checkCode() {
     if (code === "1310") {
         document.getElementById("passshape").style.display = "block";
@@ -193,10 +243,46 @@ function checkCode() {
         document.getElementById("result").innerHTML = "看來不是這個數字...試試看別的吧";
     }
 }
-
 function clearCode() {
     code = "";
     document.getElementById("screen").innerText = "----";
+}
+let code1 = "";
+function press1(number1) {
+    if (code1.length >= 4) return;
+    code1 += number1;
+    document.getElementById("screen1").innerText = code1;
+    if (code1.length === 4) {
+        checkCode1();
+    }
+}
+function checkCode1() {
+    if (code1 === "0227") {
+        document.getElementById("moldpass").style.display = "block";
+    }
+}
+function clearCode1() {
+    code = "";
+    document.getElementById("screen1").innerText = "----";
+}
+let code2 = "";
+function press2(number2) {
+    if (code2.length >= 4) return;
+    code2 += number2;
+    document.getElementById("screen2").innerText = code2;
+    if (code2.length === 4) {
+        checkCode2();
+    }
+}
+function checkCode2() {
+    if (code2 === "8888") {
+        document.getElementById("kwpass").style.display = "block";
+        document.getElementById("stickynote").style.display = "block";
+    }
+}
+function clearCode2() {
+    code = "";
+    document.getElementById("screen2").innerText = "----";
 }
 
 function tokitchen() {
@@ -204,7 +290,7 @@ function tokitchen() {
     document.getElementById("livrscene").style.display = "none";
     document.getElementById("shapelock").style.display = "none";
     document.getElementById("resulttt").style.display = "none";
-    document.getElementById("kitchen").style.display = "block";
+    document.getElementById("kitchenscene").style.display = "block";
 }
 
 nextBtn.addEventListener('click', () => {
