@@ -115,7 +115,9 @@
         <div id="result"></div>
     </div>
     <button onclick="tokitchen()">jumptokitchen</button>
-    <button id="gotokitchen" onclick="tokitchen()" style="display:none">gotokitchen</button>
+    <button id="gotokitchen" onclick="tokitchen()" style="display:none">Go to kitchen</button>
+    <button onclick="toroom()">jumptobedroom</button>
+    <button id="gotoroom" onclick="toroom()" style="display:none">Go to bedroom</button>
 
     <div id=livingroomrelated>
         <img id="passshape" src="passshape.png" style="width:400px;display:none">
@@ -327,7 +329,7 @@
     </div>
     
     <div id="kitchenwarepoint"
-        onclick="showMessage8()"
+        onclick="shapelockk()"
         style="
         position:absolute;
         top:150px;
@@ -339,7 +341,12 @@
         cursor:pointer;
          ">
     </div>
-    
+    <div class="lock" id="shapelockk" style="display:none">
+        <div class="slotk" onclick="nextShapek(0)" id="slotk0">-</div>
+        <div class="slotk" onclick="nextShapek(1)" id="slotk1">-</div>
+        <div class="slotk" onclick="nextShapek(2)" id="slotk2">-</div>
+        <div class="slotk" onclick="nextShapek(3)" id="slotk3">-</div>
+    </div>
     <div id="kwpass" style="display:none">只是普通的廚具而已嘛，為何麼要大費周章鎖這個櫃子<br>…等等，這裡貼了一張便利貼？<br>
         <div id="stickynote"
             style="
@@ -356,7 +363,8 @@
                     如果有人看到這張紙條，那容我感謝您，<br>
                     我並無意這樣刁難你，只是往事必須隱藏，
                     待我年老之時才能回來把記憶帶回。<br>去開右下角的櫃子吧，
-                    密碼是五月三十一日，建北電資聯合社展的日子。</p>
+                    密碼是五月三十一日，建北電資聯合社展的日子。
+                </p>
             </p>
         </div>
     </div>
@@ -427,8 +435,18 @@
     <button onclick="nextstep1()">Next</button>
     <button onclick="exitsteps1()" id="exitstep1" style="display:none">Exit</button>
     </div>
+    <button id="pickupckey" onclick="takekey()" style="display:none">拿走圓鑰匙</button>    
+</div>
+
+<div id="bedroomscene" style="display:none; position:relative; width:600px;">
+    <img id="bedroom" src="bedroom.jpeg" style="width:800px">
 
 </div>
+
+
+
+
+
 
     <div id="game-container">
         <div id="status-bar"><br>
@@ -446,7 +464,7 @@
             <p id="dialogue-text">我是一個偵探，但我與其他小說裡的偵探做的事不同...</p>
             <button id="next-btn">下一步</button><br><br>
         </div>
-        
+    </div>
         
 
     <script src="script.js"></script>

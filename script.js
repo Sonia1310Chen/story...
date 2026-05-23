@@ -42,7 +42,6 @@ function showMessage3() {
         msg.style.display = "block";
     }
 }
-
 function showMessage4() {
     const msg = document.getElementById("ovenmessage");
     if (msg.style.display === "block") {
@@ -119,7 +118,6 @@ function nextShape(index) {
     document.getElementById("slot" + index).innerText = shapes[current1[index]];
     checkPattern();
 }
-
 function checkPattern() {
     const pattern = current1.join("");
     console.log(pattern);
@@ -261,11 +259,14 @@ function checkCode1() {
     if (code1 === "0227") {
         document.getElementById("moldpass").style.display = "block";
         document.getElementById("keyk1").style.display = "block";
-        collectItem('鑰匙');
+        document.getElementById("pickupckey").style.display = "block";
+    }
+    if (hasAllKeys()) {
+        document.getElementById("gotoroom").style.display = "block";
     }
 }
 function clearCode1() {
-    code = "";
+    code1 = "";
     document.getElementById("screen1").innerText = "----";
 }
 
@@ -284,7 +285,7 @@ function checkCode2() {
     }
 }
 function clearCode2() {
-    code = "";
+    code1 = "";
     document.getElementById("screen2").innerText = "----";
 }
 
@@ -323,7 +324,9 @@ function nextstep1() {
         document.getElementById("keyk2").style.display = "block";
         document.getElementById("exitstep1").style.display = "block";
         collectItem('黑鑰匙');
-        
+        if (hasAllKeys()) {
+            document.getElementById("gotoroom").style.display = "block";
+        }
     }
 }
 function exitsteps1() {
@@ -332,6 +335,66 @@ function exitsteps1() {
     document.getElementById("pad2").style.display = "none";
     document.getElementById("keyk2").style.display = "none";
 }
+
+function shapelockk() {
+    const msg = document.getElementById("shapelockk");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+        document.getElementById("kwpass").style.display = "none";
+        document.getElementById("stickynote").style.display = "none";
+    }
+    else {
+        msg.style.display = "block";
+        nextShapek(indexk);
+    }
+}
+const shapesk = ["○", "❤","△", "⟰", "□", "☆", "+"];
+let currentk = [0, 0, 0, 0];
+function nextShapek(indexk) {
+    currentk[indexk]++;
+    if (currentk[indexk] >= shapesk.length) {
+        currentk[indexk] = 0;
+    }
+    document.getElementById("slotk" + indexk).innerText = shapesk[currentk[indexk]];
+    checkPatternk();
+}
+function checkPatternk() {
+    const patternk = currentk.join("");
+    console.log(patternk);
+    if (patternk === "6531") {
+        document.getElementById("kwpass").style.display = "block";
+        document.getElementById("stickynote").style.display = "block";
+    }
+    else {
+        document.getElementById("resulttt").innerHTML = "打不開⋯怎麼這裡到處都是鎖呢⋯";
+    }
+}
+
+
+function hasAllKeys() {
+    return inventory.includes('圓鑰匙') &&
+           inventory.includes('鑰匙') &&
+           inventory.includes('黑鑰匙');
+ }
+
+
+function toroom() {
+    document.getElementById("kitchenscene").style.display = "none";
+    document.getElementById("resulttt").style.display = "none";
+    document.getElementById("gotoroom").style.display = "none";
+    document.getElementById("bedroomscene").style.display = "block";
+}
+function takekey() {
+    
+    document.getElementById("screen1").style.display = "none";
+    document.getElementById("moldpass").style.display = "none";
+    document.getElementById("keyk1").style.display = "none";
+    document.getElementById("pad1").style.display = "none";
+    collectItem('圓鑰匙');
+    document.getElementById("pickupckey").style.display = "none";
+}
+
+
 
 nextBtn.addEventListener('click', () => {
     currentStep++;
@@ -353,7 +416,7 @@ nextBtn.addEventListener('click', () => {
 });
 
 
-function collectItem(itemName, event) {
+function collectItem(itemName) {
     if (!inventory.includes(itemName)) {
         inventory.push(itemName);
 
@@ -362,8 +425,6 @@ function collectItem(itemName, event) {
 
         narration.innerText =
             `旁白：你撿起了 ${itemName}，這似乎隱藏著某段回憶...`;
-
-        // 隱藏按鈕
-        event.target.style.display = "none";
+        
     }
 }
