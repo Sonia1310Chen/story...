@@ -45,3 +45,67 @@ function collectItem(itemName, event) {
       document.getElementById("keyk1").style.display = "none";
       document.getElementById("pad1").style.display = "none";
       collectItem('圓鑰匙')
+
+
+      
+      
+      <style>
+        body {
+          background: #111;
+          color: white;
+          font-size: 22px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          font-family: 'Noto Sans TC', sans-serif;
+        }
+        #text {
+          line-height: 1.8;
+          letter-spacing: 0.05em;
+        }
+        .char {
+          opacity: 0;
+          display: inline-block;
+          transform: translateY(10px);
+          transition: 0.4s ease;
+        }
+        .char.show {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      </style>
+      </head>
+      <body>
+      <div id="text"></div>
+      <script>
+      const message = `
+        謎解兒時朝夕
+        遇蔑女才無力
+        糕點鎖曾經
+        他意母離珍匿
+        尋憶?尋憶!
+        知己絕緣悲喜
+      ----《如夢令·女兒身上鎖》
+      `;
+      const container = document.getElementById("text");
+      let delay = 0;
+      const charSpeed = 300;     
+      const linePause = 600;     
+      [...message].forEach((char) => {
+        if (char === "\n") {
+          container.appendChild(document.createElement("br"));
+          delay += linePause;
+          return;
+        }
+        const span = document.createElement("span");
+        span.textContent = char;
+        span.classList.add("char");
+        container.appendChild(span);
+        setTimeout(() => {
+          span.classList.add("show");
+        }, delay);
+        delay += charSpeed;
+      });
+      </script>
+      </body>
