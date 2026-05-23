@@ -2,7 +2,7 @@ const script = [
     { name: "偵探", text: "說到底，私家偵探在現代已經被徵信社取代了吧？至於我的工作內容呢⋯⋯" },
     { name: "孫子", text: "（推門而入）請問您是鼎鼎大名的可以幫人找回故事的偵探嗎？我急需你的幫助。" },
     { name: "偵探", text: "哦，看來有新任務了。歡迎光臨，請問需要什麼幫助呢？" },
-    { name: "孫子", text: "我奶奶90歲失智了，醫生建議聊聊童年。但她20歲就離家，可以請你回她老家收集記憶嗎？" },
+    { name: "孫子", text: "我奶奶80歲失智了，醫生建議聊聊童年。但她15歲就離家，可以請你回她老家收集記憶嗎？" },
     { name: "偵探", text: "當然沒問題，交給我吧！這就出發去老家看看。" },
     { name: "旁白", text: "偵探來到了荒廢已久的老家門口，地上散落著一些東西。" }
 ];
@@ -69,6 +69,7 @@ function showMessage6() {
         msg.style.display = "none";
         document.getElementById("screen1").style.display = "none";
         document.getElementById("moldpass").style.display = "none";
+        document.getElementById("keyk1").style.display = "none";
     } else {
         msg.style.display = "block";
         document.getElementById("screen1").style.display = "block";
@@ -82,16 +83,16 @@ function showMessage7() {
         msg.style.display = "block";
     }
 }
-function showMessage8() {
+function showMessage9() {
     const msg = document.getElementById("pad2");
     if (msg.style.display === "block") {
         msg.style.display = "none";
         document.getElementById("screen2").style.display = "none";
-        document.getElementById("kwpass").style.display = "none";
+        document.getElementById("dialogueBox1").style.display = "none";
     } else {
         msg.style.display = "block";
         document.getElementById("screen2").style.display = "block";
-        document.getElementById("kwpass").style.display = "none";
+        document.getElementById("result").innerHTML = "這個櫃子也打不開⋯這次的委託比想像中累，錢果然很難賺⋯";
     }
 }
 function shapelock() {
@@ -124,7 +125,7 @@ function checkPattern() {
     console.log(pattern);
     if (pattern === "0212") {
         document.getElementById("resulttt").innerHTML ="找到鑰匙了，帶著它走吧！";
-        document.getElementById("kitchenscene").style.display = "block";
+        document.getElementById("gotokitchen").style.display = "block";
         document.getElementById("key").style.display = "block";
         collectItem('鑰匙');
     }
@@ -141,7 +142,6 @@ function showDialogue() {
         msg.style.display = "block";
     }
 }
-
 let current = 1;
 function nextstep() {
     document.getElementById("text1").style.display = "none";
@@ -180,6 +180,7 @@ function nextstep() {
 function exitsteps() {
     document.getElementById("dialogueBox").style.display = "none";
 }
+
 function changetime() {
     const msg1 = document.getElementById("smallpaper");
     if (msg1.style.display === "block") {
@@ -259,12 +260,15 @@ function press1(number1) {
 function checkCode1() {
     if (code1 === "0227") {
         document.getElementById("moldpass").style.display = "block";
+        document.getElementById("keyk1").style.display = "block";
+        collectItem('鑰匙');
     }
 }
 function clearCode1() {
     code = "";
     document.getElementById("screen1").innerText = "----";
 }
+
 let code2 = "";
 function press2(number2) {
     if (code2.length >= 4) return;
@@ -275,9 +279,8 @@ function press2(number2) {
     }
 }
 function checkCode2() {
-    if (code2 === "8888") {
-        document.getElementById("kwpass").style.display = "block";
-        document.getElementById("stickynote").style.display = "block";
+    if (code2 === "0531") {
+        showDialogue1();
     }
 }
 function clearCode2() {
@@ -290,7 +293,44 @@ function tokitchen() {
     document.getElementById("livrscene").style.display = "none";
     document.getElementById("shapelock").style.display = "none";
     document.getElementById("resulttt").style.display = "none";
+    document.getElementById("gotokitchen").style.display = "none";
     document.getElementById("kitchenscene").style.display = "block";
+}
+
+function showDialogue1() {
+    const msg = document.getElementById("dialogueBox1");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+    } else {
+        msg.style.display = "block";
+    }
+}
+
+let current11 = 1;
+function nextstep1() {
+    document.getElementById("text11").style.display = "none";
+    document.getElementById("text12").style.display = "none";
+
+    current11++;
+    if (current11 === 1) {
+        document.getElementById("text11").style.display = "block";
+    }
+    else if (current11 === 2) {
+        document.getElementById("text12").style.display = "block";
+    }
+    else if (current11 === 3) {
+        document.getElementById("resulttt").innerHTML ="找到一把鑰匙呢，我要帶它走！";
+        document.getElementById("keyk2").style.display = "block";
+        document.getElementById("exitstep1").style.display = "block";
+        collectItem('黑鑰匙');
+        
+    }
+}
+function exitsteps1() {
+    document.getElementById("dialogueBox1").style.display = "none";
+    document.getElementById("screen2").style.display = "none";
+    document.getElementById("pad2").style.display = "none";
+    document.getElementById("keyk2").style.display = "none";
 }
 
 nextBtn.addEventListener('click', () => {
