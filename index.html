@@ -149,65 +149,69 @@
             </p>
         </div>
     </div>
-    <div id="dtext" style="display:none">
+    <div id="livrdialogue">
+        <div id="dtext" style="display:none">
         這個餅乾聽我爸說很好吃，可惜我出生的時候就已經停產了...裡面會有東西嗎?<br>
         一疊照片?是很珍貴的回憶呢?帶回去給客人吧!<br>
         咦?有好幾張照片都是在客廳拍的呢，這裡會有什麼線索嗎？   
-    </div>
-    <div id="dialogueBox"
-     style="
-     width: 800px;
-     height: 300px;
-     background: black;
-     color: white;
-     padding: 30px;
-     margin-top: 20px;
-     display: none;
-     ">
-    <p id="text1">
+        </div>
+        <div id="dialogueBox"
+        style="
+        width: 800px;
+        height: 300px;
+        background: black;
+        color: white;
+        padding: 30px;
+        margin-top: 20px;
+        display: none;
+        ">
+        <p id="text1">
         ：這個黑色的方塊是什麼？<br>
         ：這是最時髦的電視，你母親買的<br>
         ：哇，媽媽好厲害！<br><br>
         ：媽媽，現在可以看電視了嗎？<br>
         ：還不行，等到吃完晚餐吧<br>
         ：晚餐還要半個小時才會好耶⋯<br>
-    </p>
-    <p id="text2" style="display:none">
+        </p>
+        <p id="text2" style="display:none">
         ：為什麼只有弟弟可以選節目？<br>
-    </p>
-    <p id="text3" style="display:none">
+        </p>
+        <p id="text3" style="display:none">
         ：他還小，你多讓他一點<br>
         ：你是女孩子，不讓弟弟看電視你還有理了？<br><br>
         ：弟弟要看電視，你回房間去讀書！<br>
         ：弟弟已經看一個小時了，該換我了吧<br>
-    </p>
-    <p id="text4" style="display:none">
-        ：你怎麼跟你母親一樣那麼小氣！<br>
-        你如果下次考試沒有100分你就去嫁人，<br>
-        你母親這個沒道德的人，有錢就說委屈離開了。<br>
-        ：你在那邊偷偷摸摸做什麼！你媽就是買了這個鬼東西才想離開我的！<br>
-        我跟你說，我已經找到你對象，你下禮拜就直接去住那，提早熟悉服侍他！<br>
-        我跟你講清楚，你被人家打，你也別想回來。<br>
-    </p>
-    <button onclick="nextstep()">Next</button>
-    <button onclick="exitsteps()" id="exitstep" style="display:none">Exit</button>
+        </p>
+        <p id="text4" style="display:none">
+            ：你怎麼跟你母親一樣那麼小氣！<br>
+            你如果下次考試沒有100分你就去嫁人，<br>
+            你母親這個沒道德的人，有錢就說委屈離開了。<br>
+            ：你在那邊偷偷摸摸做什麼！你媽就是買了這個鬼東西才想離開我的！<br>
+            我跟你說，我已經找到你對象，你下禮拜就直接去住那，提早熟悉服侍他！<br>
+            我跟你講清楚，你被人家打，你也別想回來。<br>
+        </p>
+        <button onclick="nextstep()">Next</button>
+        <button onclick="exitsteps()" id="exitstep" style="display:none">Exit</button>
+        </div>
     </div>
-    
-    <div id="screen" style="display:none">----</div>
-    <div class="pad" id="pad" style="display:none">
-        <button onclick="press(1)">1</button>
-        <button onclick="press(2)">2</button>
-        <button onclick="press(3)">3</button><br>
-        <button onclick="press(4)">4</button>
-        <button onclick="press(5)">5</button>
-        <button onclick="press(6)">6</button><br>
-        <button onclick="press(7)">7</button>
-        <button onclick="press(8)">8</button>
-        <button onclick="press(9)">9</button><br>
-        <button onclick="clearCode()">C</button>
-        <button onclick="press(0)">0</button>
+
+    <div id="no.lock">
+        <div id="screen" style="display:none">----</div>
+        <div class="pad" id="pad" style="display:none">
+            <button onclick="press(1)">1</button>
+            <button onclick="press(2)">2</button>
+            <button onclick="press(3)">3</button><br>
+            <button onclick="press(4)">4</button>
+            <button onclick="press(5)">5</button>
+            <button onclick="press(6)">6</button><br>
+            <button onclick="press(7)">7</button>
+            <button onclick="press(8)">8</button>
+            <button onclick="press(9)">9</button><br>
+            <button onclick="clearCode()">C</button>
+            <button onclick="press(0)">0</button>
+        </div>
     </div>
-    
+
     <div class="lock" id="shapelock" style="display:none">
         <div class="slot" onclick="nextShape(0)" id="slot0">-</div>
         <div class="slot" onclick="nextShape(1)" id="slot1">-</div>

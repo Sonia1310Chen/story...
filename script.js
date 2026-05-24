@@ -184,6 +184,7 @@ function showDialogue() {
     const msg = document.getElementById("dialogueBox");
     if (msg.style.display === "block") {
         msg.style.display = "none";
+        document.getElementById("dtext").style.display = "none";
     } else {
         document.getElementById("dtext").style.display = "block";
         msg.style.display = "block";
@@ -233,8 +234,8 @@ function changetime() {
     const msg3 = document.getElementById("timePicker");
     if (msg3.style.display === "block") {
         msg3.style.display = "none";
-        document.getElementById("smallpaper").style.display = "block";
-        document.getElementById("papertext").style.display = "block";
+        document.getElementById("smallpaper").style.display = "none";
+        document.getElementById("papertext").style.display = "none";
     }
     else{
         document.getElementById("timePicker").style.display = "block";
@@ -255,18 +256,13 @@ function changetime() {
     }   
 }
 function remotecode() {
-    const msg1 = document.getElementById("passshape");
-    if (msg1.style.display === "block") {
-        msg1.style.display = "none";
+    const msg = document.getElementById("pad");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+        document.getElementById("screen").style.display = "none";
+        document.getElementById("passshape").style.display = "none";
     }
-    const msg2 = document.getElementById("pad");
-    if (msg2.style.display === "block") {
-        msg2.style.display = "none";
-    }
-    const msg3 = document.getElementById("screen");
-    if (msg3.style.display === "block") {
-        msg3.style.display = "none";
-    }else{
+    else{
     document.getElementById("pad").style.display = "block";
     document.getElementById("screen").style.display = "block";
     }
@@ -342,8 +338,10 @@ function tokitchen() {
     nextBtn.style.display = "block";
     document.getElementById("livingroomrelated").style.display = "none";
     document.getElementById("livrscene").style.display = "none";
+    document.getElementById("livrdialogue").style.display = "none";
     document.getElementById("shapelock").style.display = "none";
     document.getElementById("resulttt").style.display = "none";
+    document.getElementById("no.lock").style.display = "none";
     document.getElementById("gotokitchen").style.display = "none";
 }
 
