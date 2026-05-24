@@ -23,8 +23,8 @@
              style="
                 display:none;
                 position:absolute;
-                top:200px;
-                left:300px;
+                top:140px;
+                left:200px;
                 background:white;
                 padding:5px;
                 border:1px solid black;
@@ -68,8 +68,11 @@
                 padding:5px;
                 border:1px solid black;
              ">
-             看來是個傳統的布穀鳥鐘，雖然很喜歡這種古老的工藝，但我還是第一次親眼看到布穀鳥鐘呢！據我所知在特定的時間布穀鳥會從小木門出來報時，這個鐘也是嗎？
-
+             看來是個傳統的布穀鳥鐘，<br>
+             雖然很喜歡這種古老的工藝，<br>
+             但我還是第一次親眼看到布穀鳥鐘呢！<br>
+             據我所知在特定的時間布穀鳥會從小木門出來報時，
+             這個鐘也是嗎？
         </div>
         <div id="boxpoint"
              onclick="shapelock()"
@@ -114,12 +117,15 @@
         <input type="time" id="timePicker" style="display:none">
         <div id="result"></div>
     </div>
+
+    <div class="buttons">
     <button onclick="tokitchen()">jumptokitchen</button>
-    <button id="gotokitchen" onclick="tokitchen()" style="display:none">Go to kitchen</button>
     <button onclick="toroom()">jumptobedroom</button>
-    <button id="gotoroom" onclick="toroom()" style="display:none">Go to bedroom</button>
     <button onclick="toending()" >jumptotending</button>
+    <button id="gotokitchen" onclick="tokitchen()" style="display:none">Go to kitchen</button>
+    <button id="gotoroom" onclick="toroom()" style="display:none">Go to bedroom</button>
     <button id="gotoending" onclick="toending()" style="display:none">Go to ending</button>
+    </div>
 
     <div id=livingroomrelated>
         <img id="passshape" src="passshape.png" style="width:400px;display:none">
@@ -143,7 +149,11 @@
             </p>
         </div>
     </div>
-
+    <div id="dtext" style="display:none">
+        這個餅乾聽我爸說很好吃，可惜我出生的時候就已經停產了...裡面會有東西嗎?<br>
+        一疊照片?是很珍貴的回憶呢?帶回去給客人吧!<br>
+        咦?有好幾張照片都是在客廳拍的呢，這裡會有什麼線索嗎？   
+    </div>
     <div id="dialogueBox"
      style="
      width: 800px;
@@ -172,11 +182,11 @@
         ：弟弟已經看一個小時了，該換我了吧<br>
     </p>
     <p id="text4" style="display:none">
-        ：你怎麼跟你母親一樣那麼小氣！
-        你如果下次考試沒有100分你就去嫁人，
+        ：你怎麼跟你母親一樣那麼小氣！<br>
+        你如果下次考試沒有100分你就去嫁人，<br>
         你母親這個沒道德的人，有錢就說委屈離開了。<br>
-        ：你在那邊偷偷摸摸做什麼！你媽就是買了這個鬼東西才想離開我的！
-        我跟你說，我已經找到你對象，你下禮拜就直接去住那，提早熟悉服侍他！
+        ：你在那邊偷偷摸摸做什麼！你媽就是買了這個鬼東西才想離開我的！<br>
+        我跟你說，我已經找到你對象，你下禮拜就直接去住那，提早熟悉服侍他！<br>
         我跟你講清楚，你被人家打，你也別想回來。<br>
     </p>
     <button onclick="nextstep()">Next</button>
@@ -283,6 +293,8 @@
         position:absolute;
         top:290px;
         left:380px;
+        width:300px;
+        height:100px;
         background:white;
         padding:5px;
         border:1px solid black;
@@ -365,6 +377,7 @@
         cursor:pointer;
          ">
     </div>
+    <div id="kwlocked" style="display:none">打不開⋯怎麼這裡到處都是鎖呢⋯</div>
     <div class="lock" id="shapelockk" style="display:none">
         <div class="slotk" onclick="nextShapek(0)" id="slotk0">-</div>
         <div class="slotk" onclick="nextShapek(1)" id="slotk1">-</div>
@@ -553,6 +566,10 @@
             border-radius:50%;
             cursor:pointer;
              ">
+    </div>
+    <div id="beforediarytext" style="display:none">連日記本都是上鎖的嗎？？<br>
+        為何奶奶這麼防備人…沒辦法了，還是一個一個抽屜打開檢查吧。<br>
+        (用書形鑰匙開鎖)：密密麻麻的紀錄呢！<br>
     </div>
     <div id="dialogueBox2"
      style="
@@ -763,6 +780,8 @@
     </script>
     
 </div>
+
+<!--如夢令動畫-->
 <script>
     const messageending = `
     謎解兒時朝夕
@@ -800,16 +819,9 @@
     
 </script>
 
-
     <div id="game-container">
         <div id="status-bar"><br>
-            <span>目前位置：<span id="location">偵探事務所</span></span><br>
             <span>背包：<span id="inventory-list">無</span></span>
-        </div>
-
-        <div id="scene">
-            <div id="narration">旁白：點擊下方對話開始故事...</div>
-            <div id="character-display"></div>
         </div>
 
         <div id="dialogue-box">
@@ -819,7 +831,6 @@
         </div>
     </div>
         
-
     <script src="script.js"></script>
 </body>
 

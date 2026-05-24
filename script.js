@@ -4,7 +4,13 @@ const script = [
     { name: "偵探", text: "哦，看來有新任務了。歡迎光臨，請問需要什麼幫助呢？" },
     { name: "孫子", text: "我奶奶80歲失智了，醫生建議聊聊童年。但她15歲就離家，可以請你回她老家收集記憶嗎？" },
     { name: "偵探", text: "當然沒問題，交給我吧！這就出發去老家看看。" },
-    { name: "旁白", text: "偵探來到了荒廢已久的老家門口，地上散落著一些東西。" }
+    { name: "旁白", text: "偵探來到了荒廢已久的老家門口，地上散落著一些東西。" },
+    { name: "偵探", text: "雖然看的出來房子很久沒住人了，但東西擺放的還滿整齊的…先來看看有什麼吧。" },
+    { name: "偵探", text: "是個現代化的的廚房呢！居然還有烤箱，不過沒有瓦斯爐，看來是用灶台煮飯？是特地保留磚頭風格嗎？" },
+    { name: "偵探", text: "text of skip" },
+    { name: "偵探", text: "看來是這個房間了，（推門）房間居然那麼樸素嗎？" },
+    { name: "偵探", text: "text of skip2" }
+
 ];
 
 let currentStep = 0;
@@ -17,6 +23,40 @@ const narration = document.getElementById('narration');
 
 speakerName.innerText = script[0].name;
 dialogueText.innerText = script[0].text;
+
+nextBtn.addEventListener('click', () => {
+    currentStep++;
+
+    if (currentStep < script.length) {
+        speakerName.innerText = script[currentStep].name;
+        dialogueText.innerText = script[currentStep].text;
+    }
+    if (currentStep === 7) {
+        document.getElementById("livrscene").style.display = "block";
+        nextBtn.style.display = "none";
+        document.getElementById("dialogue-box").style.display = "none";
+    }
+    if (currentStep === 9) {
+        document.getElementById("kitchenscene").style.display = "block";        
+        nextBtn.style.display = "none";
+        document.getElementById("dialogue-box").style.display = "none";
+    }
+    if (currentStep === 11) {
+        document.getElementById("bedrscene").style.display = "block";        
+        nextBtn.style.display = "none";
+        document.getElementById("dialogue-box").style.display = "none";
+    }
+    
+});
+
+function collectItem(itemName) {
+    if (!inventory.includes(itemName)) {
+        inventory.push(itemName);
+        document.getElementById('inventory-list').innerText =
+            inventory.join(", ");
+    }
+}
+
 
 function showMessage1() {
     const msg = document.getElementById("tvmessage");
@@ -107,13 +147,12 @@ function shapelock() {
     const msg = document.getElementById("shapelock");
     if (msg.style.display === "block") {
         msg.style.display = "none";
+        document.getElementById("key").style.display = "none";
+        document.getElementById("result").style.display = "none";
     }
-    const msg1 = document.getElementById("key");
-    if (msg1.style.display === "block") {
-        msg1.style.display = "none";
-    } 
     else {
         msg.style.display = "block";
+        document.getElementById("result").innerHTML = "嗯?看來需要知道密碼才能打開";
         nextShape(index);
     }
 }
@@ -146,10 +185,11 @@ function showDialogue() {
     if (msg.style.display === "block") {
         msg.style.display = "none";
     } else {
+        document.getElementById("dtext").style.display = "block";
         msg.style.display = "block";
     }
 }
-let current = 1;
+let current = 0;
 function nextstep() {
     document.getElementById("text1").style.display = "none";
     document.getElementById("text2").style.display = "none";
@@ -162,6 +202,7 @@ function nextstep() {
     current++;
     if (current === 1) {
         document.getElementById("text1").style.display = "block";
+        document.getElementById("dtext").style.display = "none";
     }
     else if (current === 2) {
         document.getElementById("cookie3").style.display = "block";
@@ -189,17 +230,11 @@ function exitsteps() {
 }
 
 function changetime() {
-    const msg1 = document.getElementById("smallpaper");
-    if (msg1.style.display === "block") {
-        msg1.style.display = "none";
-    }
-    const msg2 = document.getElementById("papertext");
-    if (msg2.style.display === "block") {
-        msg2.style.display = "none";
-    }
     const msg3 = document.getElementById("timePicker");
     if (msg3.style.display === "block") {
         msg3.style.display = "none";
+        document.getElementById("smallpaper").style.display = "block";
+        document.getElementById("papertext").style.display = "block";
     }
     else{
         document.getElementById("timePicker").style.display = "block";
@@ -213,7 +248,9 @@ function changetime() {
                 document.getElementById("papertext").style.display = "block";
                 document.getElementById("smallpaper").style.display = "block";
             }
-
+            else{
+                document.getElementById("resulttt").innerHTML = "沒反應呢....."
+            }
         });
     }   
 }
@@ -245,6 +282,7 @@ function press(number) {
 }
 function checkCode() {
     if (code === "1310") {
+        document.getElementById("result").innerHTML = "電視畫面變了!";
         document.getElementById("passshape").style.display = "block";
     }
     else {
@@ -299,12 +337,14 @@ function clearCode2() {
 }
 
 function tokitchen() {
+    currentStep++;
+    document.getElementById("dialogue-box").style.display = "block";
+    nextBtn.style.display = "block";
     document.getElementById("livingroomrelated").style.display = "none";
     document.getElementById("livrscene").style.display = "none";
     document.getElementById("shapelock").style.display = "none";
     document.getElementById("resulttt").style.display = "none";
     document.getElementById("gotokitchen").style.display = "none";
-    document.getElementById("kitchenscene").style.display = "block";
 }
 
 function showDialogue1() {
@@ -353,6 +393,7 @@ function shapelockk() {
         document.getElementById("stickynote").style.display = "none";
     }
     else {
+        document.getElementById("kwlocked").style.display = "block";
         msg.style.display = "block";
         nextShapek(indexk);
     }
@@ -371,6 +412,7 @@ function checkPatternk() {
     const patternk = currentk.join("");
     console.log(patternk);
     if (patternk === "6531") {
+        document.getElementById("kwlocked").style.display = "none";
         document.getElementById("kwpass").style.display = "block";
         document.getElementById("stickynote").style.display = "block";
     }
@@ -386,10 +428,12 @@ function hasAllKeys() {
  }
 
 function toroom() {
+    currentStep++;
+    document.getElementById("dialogue-box").style.display = "block";
+    nextBtn.style.display = "block";
     document.getElementById("kitchenscene").style.display = "none";
     document.getElementById("resulttt").style.display = "none";
     document.getElementById("gotoroom").style.display = "none";
-    document.getElementById("bedrscene").style.display = "block";
 }
 function takekey() {
     document.getElementById("screen1").style.display = "none";
@@ -496,8 +540,10 @@ function showDialoguebdr() {
     const msg = document.getElementById("dialogueBox2");
     if (msg.style.display === "block") {
         msg.style.display = "none";
+        document.getElementById("beforediarytext").style.display = "none";
     } else {
         msg.style.display = "block";
+        document.getElementById("beforediarytext").style.display = "block";
     }
 }
 
@@ -514,9 +560,9 @@ function nextstep2() {
     document.getElementById("textbd8").style.display = "none";    
     document.getElementById("textbd9").style.display = "none";
     document.getElementById("textbd10").style.display = "none";
-
     current2++;
     if (current2 === 1) {
+        document.getElementById("beforediarytext").style.display = "none";
         document.getElementById("textbd1").style.display = "block";
     }
     else if (current2 === 2) {
@@ -557,36 +603,3 @@ function exitsteps2() {
 }
 
 
-
-nextBtn.addEventListener('click', () => {
-    currentStep++;
-
-    if (currentStep < script.length) {
-        speakerName.innerText = script[currentStep].name;
-        dialogueText.innerText = script[currentStep].text;
-
-        if (currentStep === script.length - 1) {
-            interactionZone.classList.remove('hidden');
-        }
-
-    } else {
-        dialogueText.innerText = "請開始調查場景中的物品。";
-        document.getElementById("livrscene").style.display = "block";
-        
-        nextBtn.style.display = "none";
-    }
-});
-
-
-function collectItem(itemName) {
-    if (!inventory.includes(itemName)) {
-        inventory.push(itemName);
-
-        document.getElementById('inventory-list').innerText =
-            inventory.join(", ");
-
-        narration.innerText =
-            `旁白：你撿起了 ${itemName}，這似乎隱藏著某段回憶...`;
-        
-    }
-}

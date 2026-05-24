@@ -109,3 +109,28 @@ function collectItem(itemName, event) {
       });
       </script>
       </body>
+
+
+      <span>目前位置：<span id="location">偵探事務所</span></span><br>
+      <div id="scene">
+        <div id="narration">旁白：點擊下方對話開始故事...</div>
+        <div id="character-display"></div>
+      </div>
+      narration.innerText =
+            `旁白：你撿起了 ${itemName}，這似乎隱藏著某段回憶...`;
+      dialogueText.innerText = "請開始調查場景中的物品。";
+      if (currentStep === 6) {
+        interactionZone.classList.remove('hidden');
+    }
+    else {
+      document.getElementById("livrscene").style.display = "block";
+      nextBtn.style.display = "none";
+  }
+  const msg1 = document.getElementById("smallpaper");
+    if (msg1.style.display === "block") {
+        msg1.style.display = "none";
+    }
+    const msg2 = document.getElementById("papertext");
+    if (msg2.style.display === "block") {
+        msg2.style.display = "none";
+    }
