@@ -487,7 +487,9 @@ function drawPuzzle(){
 function toending() {
     document.getElementById("bedrscene").style.display = "none";
     document.getElementById("gotoending").style.display = "none";
-    document.getElementById("endingfeature").style.display = "flex";
+    const ending = document.getElementById("endingfeature");
+    ending.style.display = "flex";
+    startEndingAnimation();
 }
 
 function showDialoguebdr() {
