@@ -118,6 +118,8 @@
     <button id="gotokitchen" onclick="tokitchen()" style="display:none">Go to kitchen</button>
     <button onclick="toroom()">jumptobedroom</button>
     <button id="gotoroom" onclick="toroom()" style="display:none">Go to bedroom</button>
+    <button onclick="toending()" >jumptotending</button>
+    <button id="gotoending" onclick="toending()" style="display:none">Go to ending</button>
 
     <div id=livingroomrelated>
         <img id="passshape" src="passshape.png" style="width:400px;display:none">
@@ -182,7 +184,6 @@
     </div>
     
     <div id="screen" style="display:none">----</div>
-
     <div class="pad" id="pad" style="display:none">
         <button onclick="press(1)">1</button>
         <button onclick="press(2)">2</button>
@@ -203,7 +204,7 @@
         <div class="slot" onclick="nextShape(2)" id="slot2">-</div>
         <div class="slot" onclick="nextShape(3)" id="slot3">-</div>
     </div>
-    
+
     <div id="resulttt"></div>
 
 <div id="kitchenscene" style="display:none; position:relative; width:600px;">
@@ -223,7 +224,7 @@
             border-radius:50%;
             cursor:pointer;
              ">
-        </div>
+    </div>
     <div id="ovenmessage"
         style="
         display:none;
@@ -461,9 +462,172 @@
     <button id="pickupckey" onclick="takekey()" style="display:none">拿走圓鑰匙</button>    
 </div>
 
-<div id="bedroomscene" style="display:none; position:relative; width:600px;">
+<div id="bedrscene" style="display:none; position:relative; width:600px;">
     <img id="bedroom" src="bedroom.jpeg" style="width:800px">
-
+    <img id="keyb" src="keyb.png" style="width:800px;display:none">
+    <div id="drawer1point"
+        onclick="showMessage8()"
+        style="
+            position:absolute;
+            top:350px;
+            left:250px;
+            width:20px;
+            height:20px;
+            background:rgb(226, 71, 71);
+            border-radius:50%;
+            cursor:pointer;
+             ">
+    </div>
+    <div id="d1unlock"
+             style="
+                display:none;
+                position:absolute;
+                top:300px;
+                left:280px;
+                background:white;
+                padding:5px;
+                border:1px solid black;
+             ">
+            圓孔...用圓鑰匙可以打開!<br>
+            只放了一把木頭梳子…
+    </div>
+    <div id="drawer2point"
+        onclick="showmessage1()"
+        style="
+            position:absolute;
+            top:380px;
+            left:250px;
+            width:20px;
+            height:20px;
+            background:rgb(226, 71, 71);
+            border-radius:50%;
+            cursor:pointer;
+             ">
+    </div>
+    <div id="d2unlock"
+             style="
+                display:none;
+                position:absolute;
+                top:200px;
+                left:300px;
+                background:white;
+                padding:5px;
+                border:1px solid black;
+             ">
+            這次是…一條手帕？怎麼都是一些小東西
+    </div>
+    <div id="drawer3point"
+        onclick="showMessage8()"
+        style="
+            position:absolute;
+            top:410px;
+            left:250px;
+            width:20px;
+            height:20px;
+            background:rgb(226, 71, 71);
+            border-radius:50%;
+            cursor:pointer;
+             ">
+    </div>
+    <div id="d3unlock"
+             style="
+                display:none;
+                position:absolute;
+                top:200px;
+                left:300px;
+                background:white;
+                padding:5px;
+                border:1px solid black;
+             ">
+            一把鑰匙？終於有看起來是解鎖日記的工具了
+    </div>
+    <div id="diarypoint"
+        onclick="showDialoguebdr()"
+        style="
+            position:absolute;
+            top:290px;
+            left:150px;
+            width:20px;
+            height:20px;
+            background:rgb(226, 71, 71);
+            border-radius:50%;
+            cursor:pointer;
+             ">
+    </div>
+    <div id="dialogueBox2"
+     style="
+     width: 800px;
+     height: 300px;
+     background: black;
+     color: white;
+     padding: 30px;
+     margin-top: 20px;
+     display: none;
+     ">
+    <p id="textbd1" style="display:none">
+        第一頁：<br><br>
+        媽媽買給我這本日記本！我要用它來紀錄生活！<br><br>
+        ：姊姊過來，這是妳的生日禮物，<br>
+        要好好讀書，要聽話，多幫忙家裡的忙，<br>
+        等妳長大了要能自己賺錢養家，讓自己過得幸福。<br>
+        ：女孩子最重要的要溫柔賢慧，要會煮飯，才能找好丈夫嫁人。<br>
+        ：知道了，謝謝媽媽爸爸。
+    </p>
+    <p id="textbd2" style="display:none">
+        第二頁：<br><br>
+        今天家裡多了很時髦的黑色正方形箱子，<br>
+        媽媽說是電視，透過電視可以看到好幾百里外發生的事呢！
+    </p>
+    <p id="textbd3" style="display:none">
+        第三頁：<br><br>
+        今天幫忙媽媽做糕點了，我覺得媽媽做的糕點很美味，<br>
+        但媽媽叫我好好讀書，不要做糕點⋯
+    </p>
+    <p id="textbd4" style="display:none">
+        第四頁：<br><br>
+        今天媽媽被爸爸罵了，都是我的問題⋯<br>
+        如果我不要跟弟弟搶電視爸爸就不會生氣了⋯
+    </p>
+    <p id="textbd5" style="display:none">
+        第五頁：<br><br>
+        明天就是我的生日了！<br>媽媽說會做豆沙餡的糕點給我吃！
+    </p>
+    <p id="textbd6" style="display:none">
+        第六頁：<br><br>
+        媽媽離開了。<br><br>
+        ：姑娘，我真的對不起你，但我要離開了。
+    </p>
+    <p id="textbd7" style="display:none">
+        第七頁：<br><br>
+        如果我沒考到一百分，就要趕我走了。<br>
+        從前日子很愉快都不會想寫日記，現在寫日記像是在想念媽媽⋯
+    </p>
+    <p id="textbd7.5" style="display:none">
+        第八頁：<br><br>
+        在家好好相夫教子確實是婦女的美德，但夫也該是賢夫不是嗎？<br>
+        父親沒有照顧家裡生計，讓媽媽承擔，<br>
+        還是對媽媽出那麼大脾氣，媽媽的離去難道不該歸咎於爸爸沒有做好本分嗎？<br>
+    </p>
+    <p id="textbd8" style="display:none">
+        第九頁：<br><br>
+        功課越來越難了，不知道我還能待在這裡多久。<br>
+        如果家裡少了一個人，<br>
+        那家還是原本的家嗎？
+    </p>
+    <p id="textbd9" style="display:none">
+        第十頁：<br><br>
+        要被趕走了。<br>
+        為了讓人有機會知道我的故事，<br>
+        也為了讓我在這個地方留下痕跡，<br>
+        我決定把照片和紀錄藏在每個媽媽生活的地方，但願有人能發現。
+    </p>
+    <p id="textbd10" style="display:none">
+        <br><br>
+        我要走了。
+    </p>
+    <button onclick="nextstep2()">Next</button>
+    <button onclick="exitsteps2()" id="exitstep2" style="display:none">Exit</button>
+    </div>
 </div>
 
 <div id="puzzle" style="display:none">
@@ -476,14 +640,12 @@
     <button id="s1"
             onclick="moveSteamer(1)"
             style="width:60px;height:60px;font-size:30px;">
-            2
             3
     </button>
 
     <button id="s2"
             onclick="moveSteamer(2)"
             style="width:60px;height:60px;font-size:30px;">
-            3
             6
     </button>
 
@@ -492,7 +654,6 @@
     <button id="s3"
             onclick="moveSteamer(3)"
             style="width:60px;height:60px;font-size:30px;">
-            4
             5
     </button>
 
@@ -505,7 +666,6 @@
     <button id="s5"
             onclick="moveSteamer(5)"
             style="width:60px;height:60px;font-size:30px;">
-            6
             2
     </button>
 
@@ -514,14 +674,12 @@
     <button id="s6"
             onclick="moveSteamer(6)"
             style="width:60px;height:60px;font-size:30px;">
-            7
             4
     </button>
 
     <button id="s7"
             onclick="moveSteamer(7)"
             style="width:60px;height:60px;font-size:30px;">
-            5
             7
     </button>
 
@@ -533,7 +691,120 @@
 
 </div>
 
+<div class="ending" id="endingfeature" style="display:none">
 
+    <style>
+    #endingfeature {
+      background: #111;
+      color: white;
+      font-size: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    
+    #endingfeature #text {
+      line-height: 1.8;
+      letter-spacing: 0.05em;
+    }
+    
+    #endingfeature .char {
+      opacity: 0;
+      display: inline-block;
+      transform: translateY(10px);
+      transition: 0.4s ease;
+    }
+    
+    #endingfeature .char.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    </style>
+    
+    <div id="text"></div>
+    
+    <script>
+    const message = `
+    謎解兒時朝夕
+    遇蔑女才無力
+    糕點鎖曾經
+    他意母離珍匿
+    尋憶?尋憶!
+    知己絕緣悲喜
+    ----《如夢令·女兒身上鎖》
+    `;
+    
+    const container = document.getElementById("text");
+    let delay = 0;
+    const charSpeed = 300;
+    const linePause = 600;
+    
+    [...message].forEach((char) => {
+      if (char === "\n") {
+        container.appendChild(document.createElement("br"));
+        delay += linePause;
+        return;
+      }
+    
+      const span = document.createElement("span");
+      span.textContent = char;
+      span.classList.add("char");
+    
+      container.appendChild(span);
+    
+      setTimeout(() => {
+        span.classList.add("show");
+      }, delay);
+    
+      delay += charSpeed;
+    });
+    </script>
+    
+</div>
+<script>
+    const messageending = `
+    謎解兒時朝夕
+    遇蔑女才無力
+    糕點鎖曾經
+    他意母離珍匿
+    尋憶?尋憶!
+    知己絕緣悲喜
+    ----《如夢令·女兒身上鎖》
+    `;
+    
+    function startEndingAnimation() {
+        const container = document.getElementById("text");
+        container.innerHTML = "";
+        let delay = 0;
+        const charSpeed = 300;
+        const linePause = 600;
+        [...messageending].forEach((char) => {
+            if (char === "\n") {
+                container.appendChild(document.createElement("br"));
+                delay += linePause;
+                return;
+            }
+            const span = document.createElement("span");
+            span.textContent = char;
+            span.classList.add("char");
+            container.appendChild(span);
+            setTimeout(() => {
+                span.classList.add("show");
+            }, delay);
+            delay += charSpeed;
+        });
+    }
+    
+    function toending() {
+        document.getElementById("bedrscene").style.display = "none";
+        document.getElementById("gotoending").style.display = "none";
+        const ending = document.getElementById("endingfeature");
+        ending.style.display = "flex";
+        startEndingAnimation();
+    }
+</script>
 
 
     <div id="game-container">

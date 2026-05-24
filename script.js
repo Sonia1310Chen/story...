@@ -94,6 +94,15 @@ function showMessage9() {
         document.getElementById("result").innerHTML = "這個櫃子也打不開⋯這次的委託比想像中累，錢果然很難賺⋯";
     }
 }
+function showMessage8() {
+    const msg = document.getElementById("d1unlock");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+    } else {
+        msg.style.display = "block";
+    }
+}
+
 function shapelock() {
     const msg = document.getElementById("shapelock");
     if (msg.style.display === "block") {
@@ -370,19 +379,17 @@ function checkPatternk() {
     }
 }
 
-
 function hasAllKeys() {
     return inventory.includes('圓鑰匙') &&
            inventory.includes('鑰匙') &&
            inventory.includes('黑鑰匙');
  }
 
-
 function toroom() {
     document.getElementById("kitchenscene").style.display = "none";
     document.getElementById("resulttt").style.display = "none";
     document.getElementById("gotoroom").style.display = "none";
-    document.getElementById("bedroomscene").style.display = "block";
+    document.getElementById("bedrscene").style.display = "block";
 }
 function takekey() {
     document.getElementById("screen1").style.display = "none";
@@ -476,6 +483,78 @@ function drawPuzzle(){
     }
 
 }
+
+function toending() {
+    document.getElementById("bedrscene").style.display = "none";
+    document.getElementById("gotoending").style.display = "none";
+    document.getElementById("endingfeature").style.display = "flex";
+}
+
+function showDialoguebdr() {
+    const msg = document.getElementById("dialogueBox2");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+    } else {
+        msg.style.display = "block";
+    }
+}
+
+let current2 = 0;
+function nextstep2() {
+    document.getElementById("textbd1").style.display = "none";
+    document.getElementById("textbd2").style.display = "none";
+    document.getElementById("textbd3").style.display = "none";
+    document.getElementById("textbd4").style.display = "none";
+    document.getElementById("textbd5").style.display = "none";
+    document.getElementById("textbd6").style.display = "none";
+    document.getElementById("textbd7").style.display = "none";
+    document.getElementById("textbd7.5").style.display = "none";
+    document.getElementById("textbd8").style.display = "none";    
+    document.getElementById("textbd9").style.display = "none";
+    document.getElementById("textbd10").style.display = "none";
+
+    current2++;
+    if (current2 === 1) {
+        document.getElementById("textbd1").style.display = "block";
+    }
+    else if (current2 === 2) {
+        document.getElementById("textbd2").style.display = "block";
+    }
+    else if (current2 === 3) {
+        document.getElementById("textbd3").style.display = "block";
+    }
+    else if (current2 === 4) {
+        document.getElementById("textbd4").style.display = "block";
+    }
+    else if (current2 === 5) {
+        document.getElementById("textbd5").style.display = "block";
+    }
+    else if (current2 === 6) {
+        document.getElementById("textbd6").style.display = "block";
+    }
+    else if (current2 === 7) {
+        document.getElementById("textbd7").style.display = "block";
+    }
+    else if (current2 === 8) {
+        document.getElementById("textbd7.5").style.display = "block";
+    }
+    else if (current2 === 9) {
+        document.getElementById("textbd8").style.display = "block";
+    }
+    else if (current2 === 10) {
+        document.getElementById("textbd9").style.display = "block";
+    }
+    else if (current2 === 11) {
+        document.getElementById("textbd10").style.display = "block";
+        document.getElementById("exitstep2").style.display = "block";
+    }
+}
+function exitsteps2() {
+    document.getElementById("dialogueBox2").style.display = "none";
+    document.getElementById("gotoending").style.display = "block";
+}
+
+
 
 nextBtn.addEventListener('click', () => {
     currentStep++;
