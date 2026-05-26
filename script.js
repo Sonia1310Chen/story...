@@ -49,6 +49,49 @@ nextBtn.addEventListener('click', () => {
     
 });
 
+function closeAllPanels() {
+    const panels = [
+        "tvmessage",
+        "clockmessage",
+        "pad",
+        "result",
+        "resulttt",
+        "screen",
+        "timePicker",
+        "changetimeuse",
+        "passshape",
+        "shapelock",
+        "key",
+        "dialogueBox",
+        "dtext",
+        "ovenmessage",
+        "twmessage",
+        "stovemessage",
+        "elfwords",
+        "stovemessage2",
+        "pad1",
+        "screen1",
+        "moldpass",
+        "keyk1",
+        "pad2",
+        "screen2",
+        "dialogueBox1",
+        "kwlocked",
+        "shapelockk",
+        "kwpass",
+        "dialogueBox2",
+        "beforediarytext",
+        "puzzle",
+        "puzzlelock"
+    ];
+    panels.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.style.display = "none";
+        }
+    });
+}
+
 function collectItem(itemName) {
     if (!inventory.includes(itemName)) {
         inventory.push(itemName);
@@ -58,46 +101,55 @@ function collectItem(itemName) {
 }
 
 
-function showMessage1() {
+function showtvMessage() {
     const msg = document.getElementById("tvmessage");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-    } else {
-        msg.style.display = "block";
+        closeAllPanels();
     }
-}
-function showMessage2() {
-    const msg = document.getElementById("remotemessage");
+    else{
+        closeAllPanels();
+        document.getElementById("tvmessage").style.display = "block";
+    }
+}    
+
+function remotecode() {
+    const msg = document.getElementById("pad");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-    } else {
-        msg.style.display = "block";
+        closeAllPanels();
+    }
+    else{
+        closeAllPanels();
+        document.getElementById("pad").style.display = "block";
+        document.getElementById("screen").style.display = "block";
     }
 }
 function showMessage3() {
     const msg = document.getElementById("clockmessage");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-    } else {
-        msg.style.display = "block";
+        closeAllPanels();
+    }
+    else{
+        closeAllPanels();
+        document.getElementById("clockmessage").style.display = "block";
     }
 }
 function showMessage4() {
     const msg = document.getElementById("ovenmessage");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-    } else {
-        msg.style.display = "block";
+        closeAllPanels();
+    }
+    else{
+        closeAllPanels();
+        document.getElementById("ovenmessage").style.display = "block";
     }
 }
 function showMessage5() {
     const msg = document.getElementById("stovemessage");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-        document.getElementById("elfwords").style.display = "none";
-        document.getElementById("stovemessage2").style.display = "none";
-    } else {
-        msg.style.display = "block";
+        closeAllPanels();
+    }
+    else{
+        closeAllPanels();
         document.getElementById("elfwords").style.display = "block";
         document.getElementById("stovemessage2").style.display = "block";
     }
@@ -105,31 +157,32 @@ function showMessage5() {
 function showMessage6() {
     const msg = document.getElementById("pad1");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-        document.getElementById("screen1").style.display = "none";
-        document.getElementById("moldpass").style.display = "none";
-        document.getElementById("keyk1").style.display = "none";
-    } else {
-        msg.style.display = "block";
+        closeAllPanels();
+    }
+    else{
+        closeAllPanels();
+        document.getElementById("pad1").style.display = "block";
         document.getElementById("screen1").style.display = "block";
     }
 }
 function showMessage7() {
     const msg = document.getElementById("twmessage");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-    } else {
-        msg.style.display = "block";
+        closeAllPanels();
+    }
+    else{
+        closeAllPanels();
+        document.getElementById("twmessage").style.display = "block";
     }
 }
 function showMessage9() {
     const msg = document.getElementById("pad2");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-        document.getElementById("screen2").style.display = "none";
-        document.getElementById("dialogueBox1").style.display = "none";
-    } else {
-        msg.style.display = "block";
+        closeAllPanels();
+    }
+    else{
+        closeAllPanels();
+        document.getElementById("pad2").style.display = "block";
         document.getElementById("screen2").style.display = "block";
         document.getElementById("result").innerHTML = "這個櫃子也打不開⋯這次的委託比想像中累，錢果然很難賺⋯";
     }
@@ -137,20 +190,22 @@ function showMessage9() {
 function showMessage8() {
     const msg = document.getElementById("d1unlock");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-    } else {
-        msg.style.display = "block";
+        closeAllPanels();
+    }
+    else{
+        closeAllPanels();
+        document.getElementById("d1unlock").style.display = "block";
     }
 }
+
 
 function shapelock() {
     const msg = document.getElementById("shapelock");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-        document.getElementById("key").style.display = "none";
-        document.getElementById("result").style.display = "none";
+        closeAllPanels();
     }
-    else {
+    else{
+        closeAllPanels();
         msg.style.display = "block";
         document.getElementById("result").innerHTML = "嗯?看來需要知道密碼才能打開";
         nextShape(index);
@@ -183,11 +238,12 @@ function checkPattern() {
 function showDialogue() {
     const msg = document.getElementById("dialogueBox");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
+        closeAllPanels();
+    }
+    else{
+        closeAllPanels();
+        document.getElementById("dialogueBox").style.display = "block";
         document.getElementById("dtext").style.display = "none";
-    } else {
-        document.getElementById("dtext").style.display = "block";
-        msg.style.display = "block";
     }
 }
 let current = 0;
@@ -233,9 +289,7 @@ function exitsteps() {
 function changetime() {
     const msg3 = document.getElementById("timePicker");
     if (msg3.style.display === "block") {
-        msg3.style.display = "none";
-        document.getElementById("smallpaper").style.display = "none";
-        document.getElementById("papertext").style.display = "none";
+        closeAllPanels();
     }
     else{
         document.getElementById("timePicker").style.display = "block";
@@ -255,18 +309,7 @@ function changetime() {
         });
     }   
 }
-function remotecode() {
-    const msg = document.getElementById("pad");
-    if (msg.style.display === "block") {
-        msg.style.display = "none";
-        document.getElementById("screen").style.display = "none";
-        document.getElementById("passshape").style.display = "none";
-    }
-    else{
-    document.getElementById("pad").style.display = "block";
-    document.getElementById("screen").style.display = "block";
-    }
-}
+
 let code = "";
 function press(number) {
     if (code.length >= 4) return;

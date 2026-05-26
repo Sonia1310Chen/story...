@@ -1,0 +1,193 @@
+/* ===== 整個頁面改成左右布局 ===== */
+
+body {
+
+    margin: 0;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #dff6ff,
+            #bfe9ff
+        );
+
+    font-family:
+        "Noto Sans TC",
+        sans-serif;
+
+    color: #13405c;
+}
+
+/* ===== 場景保持左邊 ===== */
+
+#livrscene,
+#kitchenscene,
+#bedrscene {
+
+    float: left;
+
+    margin-right: 40px;
+}
+
+/* ===== 右邊 UI 區 ===== */
+
+#game-container,
+#livingroomrelated,
+#result,
+#resulttt {
+
+    width: 420px;
+
+    margin-left: 860px;
+}
+
+/* ===== 背包 ===== */
+
+#status-bar {
+
+    background: #7dd3fc;
+
+    color: white;
+
+    padding: 16px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* ===== 對話框 ===== */
+
+#dialogue-box,
+#dialogueBox,
+#dialogueBox1,
+#dialogueBox2 {
+
+    background: rgba(255,255,255,0.85);
+
+    border-left:
+        6px solid #38bdf8;
+
+    padding: 20px;
+
+    line-height: 1.8;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.08);
+
+    margin-bottom: 20px;
+}
+
+/* ===== 小訊息 ===== */
+
+#tvmessage,
+#clockmessage,
+#ovenmessage,
+#twmessage,
+#stovemessage,
+#d1unlock,
+#d2unlock,
+#d3unlock,
+#beforediarytext {
+
+    background:
+        rgba(255,255,255,0.92) !important;
+
+    border-left:
+        5px solid #38bdf8 !important;
+
+    padding: 14px !important;
+
+    color: #13405c;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* ===== 按鈕 ===== */
+
+button {
+
+    background:
+        #38bdf8;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+
+    background:
+        #0ea5e9;
+}
+
+/* ===== 點位只改顏色 ===== */
+
+#tvpoint,
+#remotepoint,
+#clockpoint,
+#boxpoint,
+#bucketpoint,
+#changetimepoint,
+#ovenpoint,
+#tablewarepoint,
+#stovepoint,
+#moldpoint,
+#steamerpoint,
+#kitchenwarepoint,
+#saucecpoint,
+#drawer1point,
+#drawer2point,
+#drawer3point,
+#diarypoint {
+
+    background:
+        #38bdf8 !important;
+
+    box-shadow:
+        0 0 10px rgba(56,189,248,0.8);
+}
+
+/* ===== 密碼區 ===== */
+
+#screen,
+#screen1,
+#screen2 {
+
+    background: #0f172a;
+
+    color: #7dd3fc;
+
+    padding: 12px;
+
+    font-size: 28px;
+
+    letter-spacing: 5px;
+
+    width: 180px;
+
+    text-align: center;
+
+    margin-bottom: 10px;
+}
+
+/* ===== 鎖 ===== */
+
+.slot,
+.slotk {
+
+    background: white;
+
+    border:
+        2px solid #38bdf8;
+}

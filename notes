@@ -134,3 +134,5 @@ function collectItem(itemName, event) {
     if (msg2.style.display === "block") {
         msg2.style.display = "none";
     }
+
+    
