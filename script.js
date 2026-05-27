@@ -85,7 +85,11 @@ function closeAllPanels() {
         "dialogueBox2",
         "beforediarytext",
         "puzzle",
-        "puzzlelock"
+        "puzzlelock",
+        "drawer2_paper",
+        "drawer1_paper",
+        "d1unlock",
+        "d2unlock"
     ];
     panels.forEach(id => {
         const el = document.getElementById(id);
@@ -199,6 +203,7 @@ function showMessage8() {
         document.getElementById("d1unlock").style.display = "block";
     }
 }
+
 function shapelock() {
     const msg = document.getElementById("shapelock");
     if (msg.style.display === "block") {
@@ -565,6 +570,17 @@ function drawPuzzle(){
 
 }
 
+function checkPuzzle(){
+    let correct=true;
+    for(let i=0; i<9; i++){
+        if(board[i]!=correctBoard[i]){
+            correct=false;
+            break;
+        }
+    }
+    if(correct)document.getElementById("steamerresult").innerHTML = "上方有我最喜歡也最討厭的東西，如果我早一點出生就好了!";
+}
+
 function toending() {
     document.getElementById("bedrscene").style.display = "none";
     document.getElementById("gotoending").style.display = "none";
@@ -680,4 +696,38 @@ function checkCode3() {
 function clearCode3() {
     code3 = "";
     document.getElementById("drawer2screen").innerText = "----";
+}
+function drawer3code(){
+    const msg = document.getElementById("drawer3pad");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+        document.getElementById("drawer3screen").style.display = "none";
+    }
+    else{
+    document.getElementById("drawer3pad").style.display = "block";
+    document.getElementById("drawer3screen").style.display = "block";
+    }
+}
+let code4="";
+function press4(number4) {
+    if (code4.length >= 4) return;
+    code4 += number4;
+    document.getElementById("drawer3screen").innerText = code4;
+    if (code4.length === 4) {
+        checkCode4();
+    }
+}
+function checkCode4() {
+    if (code4 === "1594") {
+        document.getElementById("d3unlock").style.display = "block";
+    }
+    else {
+        document.getElementById("result").innerHTML = "看來不是這個數字...試試看別的吧";
+        document.getElementById("result").style.display = "block";
+
+    }
+}
+function clearCode4() {
+    code4 = "";
+    document.getElementById("drawer3screen").innerText = "----";
 }
