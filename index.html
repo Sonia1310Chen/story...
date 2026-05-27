@@ -4,15 +4,6 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <div class="buttons">
-        <button onclick="tokitchen()">jumptokitchen</button>
-        <button onclick="toroom()">jumptobedroom</button>
-        <button onclick="toending()" >jumptotending</button>
-        <button id="gotokitchen" onclick="tokitchen()" style="display:none">Go to kitchen</button>
-        <button id="gotoroom" onclick="toroom()" style="display:none">Go to bedroom</button>
-        <button id="gotoending" onclick="toending()" style="display:none">Go to ending</button>
-    </div>
-
     <div id="livrscene" style="display:none; position:relative; width:600px;">
         <img id="livingroom" src="livingroom.jpeg" alt="客廳照片" style="width:800px">
         <div id="tvpoint"
@@ -28,6 +19,18 @@
                 cursor:pointer;
              ">
         </div>
+        <div id="tvmessage"
+             style="
+                display:none;
+                position:absolute;
+                top:140px;
+                left:200px;
+                background:white;
+                padding:5px;
+                border:1px solid black;
+             ">
+             開機了?!這麼老舊的電器居然還有功能啊
+        </div>
         <div id="remotepoint"
              onclick="remotecode()"
              style="
@@ -41,6 +44,7 @@
                 cursor:pointer;
              ">
         </div>
+        
         <div id="clockpoint"
              onclick="showMessage3()"
              style="
@@ -53,6 +57,22 @@
                 border-radius:50%;
                 cursor:pointer;
              ">
+        </div>
+        <div id="clockmessage"
+             style="
+                display:none;
+                position:absolute;
+                top:230px;
+                left:300px;
+                background:white;
+                padding:5px;
+                border:1px solid black;
+             ">
+             看來是個傳統的布穀鳥鐘，<br>
+             雖然很喜歡這種古老的工藝，<br>
+             但我還是第一次親眼看到布穀鳥鐘呢！<br>
+             據我所知在特定的時間布穀鳥會從小木門出來報時，
+             這個鐘也是嗎？
         </div>
         <div id="boxpoint"
              onclick="shapelock()"
@@ -67,6 +87,7 @@
                 cursor:pointer;
              ">
         </div>
+        
         <div id="bucketpoint"
              onclick="showDialogue()"
              style="
@@ -93,63 +114,27 @@
                 cursor:pointer;
              ">
         </div>
+        <input type="time" id="timePicker" style="display:none">
+        <div id="result"></div>
     </div>
 
-
+    <div class="buttons">
+    <button onclick="tokitchen()">jumptokitchen</button>
+    <button onclick="toroom()">jumptobedroom</button>
+    <button onclick="toending()" >jumptotending</button>
+    <button id="gotokitchen" onclick="tokitchen()" style="display:none">Go to kitchen</button>
+    <button id="gotoroom" onclick="toroom()" style="display:none">Go to bedroom</button>
+    <button id="gotoending" onclick="toending()" style="display:none">Go to ending</button>
+    </div>
 
     <div id=livingroomrelated>
-        <div id="tvuse">
-            <div id="tvmessage"
-             style="
-                display:none;
-                position:absolute;
-                top:140px;
-                left:200px;
-                background:white;
-                padding:5px;
-                border:1px solid black;
-             ">
-             開機了?!這麼老舊的電器居然還有功能啊
-            </div>
-        </div>
-        <div id="remoteuse">
-            <div id="screen" style="display:none">----</div>
-            <div class="pad" id="pad" style="display:none">
-                <button onclick="press(1)">1</button>
-                <button onclick="press(2)">2</button>
-                <button onclick="press(3)">3</button><br>
-                <button onclick="press(4)">4</button>
-                <button onclick="press(5)">5</button>
-                <button onclick="press(6)">6</button><br>
-                <button onclick="press(7)">7</button>
-                <button onclick="press(8)">8</button>
-                <button onclick="press(9)">9</button><br>
-                <button onclick="clearCode()">C</button>
-                <button onclick="press(0)">0</button>
-            </div>
-            <img id="passshape" src="passshape.png" style="width:400px;display:none">
-        </div>
-        <div id="clockuse">
-            <div id="clockmessage"
-             style="
-                display:none;
-                position:absolute;
-                top:290px;
-                left:300px;
-                background:white;
-                padding:5px;
-                border:1px solid black;
-             ">
-             看來是個傳統的布穀鳥鐘，<br>
-             雖然很喜歡這種古老的工藝，<br>
-             但我還是第一次親眼看到布穀鳥鐘呢！<br>
-             據我所知在特定的時間布穀鳥會從小木門出來報時，
-             這個鐘也是嗎？
-        </div>
-        </div>
-        <div id="changetimeuse">
-            <input type="time" id="timePicker" style="display:none">
-            <div id="smallpaper"
+        <img id="passshape" src="passshape.png" style="width:400px;display:none">
+        <img id="cookie1" src="cookie1.jpeg" style="width:500px;display:none">
+        <img id="cookie2" src="cookie2.jpeg" style="width:500px;display:none">
+        <img id="cookie3" src="cookie3.jpeg" style="width:500px;display:none">
+        <img id="key" src="key.jpg" style="width:300px;display:none">
+        <button onclick="tokitchen()" id="tokitchen" style="display:none">Moveon</button>
+        <div id="smallpaper"
             style="
             width: 400px;
             height: 125px;
@@ -163,73 +148,78 @@
                 <p style="font-size: 42px; font-family: 'Courier New', serif;">1310</p>
             </p>
         </div>
-        </div>
-        <div id="boxuse">
-            <img id="key" src="key.jpg" style="width:300px;display:none">
-            <div class="lock" id="shapelock" style="display:none">
-                <div class="slot" onclick="nextShape(0)" id="slot0">-</div>
-                <div class="slot" onclick="nextShape(1)" id="slot1">-</div>
-                <div class="slot" onclick="nextShape(2)" id="slot2">-</div>
-                <div class="slot" onclick="nextShape(3)" id="slot3">-</div>
-            </div>
-        </div>
-        <div id="bucketuse">
-            <div id="livrdialogue">
-                <div id="dtext" style="display:none">
-                這個餅乾聽我爸說很好吃，可惜我出生的時候就已經停產了...裡面會有東西嗎?<br>
-                一疊照片?是很珍貴的回憶呢?帶回去給客人吧!<br>
-                咦?有好幾張照片都是在客廳拍的呢，這裡會有什麼線索嗎？   
-                </div>
-                <div id="dialogueBox"
-                style="
-                width: 800px;
-                height: 300px;
-                background: black;
-                color: white;
-                padding: 30px;
-                margin-top: 20px;
-                display: none;
-                ">
-                <p id="text1">
-                ：這個黑色的方塊是什麼？<br>
-                ：這是最時髦的電視，你母親買的<br>
-                ：哇，媽媽好厲害！<br><br>
-                ：媽媽，現在可以看電視了嗎？<br>
-                ：還不行，等到吃完晚餐吧<br>
-                ：晚餐還要半個小時才會好耶⋯<br>
-                </p>
-                <p id="text2" style="display:none">
-                ：為什麼只有弟弟可以選節目？<br>
-                </p>
-                <p id="text3" style="display:none">
-                ：他還小，你多讓他一點<br>
-                ：你是女孩子，不讓弟弟看電視你還有理了？<br><br>
-                ：弟弟要看電視，你回房間去讀書！<br>
-                ：弟弟已經看一個小時了，該換我了吧<br>
-                </p>
-                <p id="text4" style="display:none">
-                    ：你怎麼跟你母親一樣那麼小氣！<br>
-                    你如果下次考試沒有100分你就去嫁人，<br>
-                    你母親這個沒道德的人，有錢就說委屈離開了。<br>
-                    ：你在那邊偷偷摸摸做什麼！你媽就是買了這個鬼東西才想離開我的！<br>
-                    我跟你說，我已經找到你對象，你下禮拜就直接去住那，提早熟悉服侍他！<br>
-                    我跟你講清楚，你被人家打，你也別想回來。<br>
-                </p>
-                <button onclick="nextstep()">Next</button>
-                <button onclick="exitsteps()" id="exitstep" style="display:none">Exit</button>
-                </div>
-            </div>
-            <img id="cookie1" src="cookie1.jpeg" style="width:500px;display:none">
-            <img id="cookie2" src="cookie2.jpeg" style="width:500px;display:none">
-            <img id="cookie3" src="cookie3.jpeg" style="width:500px;display:none">
-        </div>
-        <button onclick="tokitchen()" id="tokitchen" style="display:none">Moveon</button>
-        <div id="result"></div>
-        <div id="resulttt"></div>
     </div>
-    
+    <div id="livrdialogue">
+        <div id="dtext" style="display:none">
+        這個餅乾聽我爸說很好吃，可惜我出生的時候就已經停產了...裡面會有東西嗎?<br>
+        一疊照片?是很珍貴的回憶呢?帶回去給客人吧!<br>
+        咦?有好幾張照片都是在客廳拍的呢，這裡會有什麼線索嗎？   
+        </div>
+        <div id="dialogueBox"
+        style="
+        width: 800px;
+        height: 300px;
+        background: black;
+        color: white;
+        padding: 30px;
+        margin-top: 20px;
+        display: none;
+        ">
+        <p id="text1">
+        ：這個黑色的方塊是什麼？<br>
+        ：這是最時髦的電視，你母親買的<br>
+        ：哇，媽媽好厲害！<br><br>
+        ：媽媽，現在可以看電視了嗎？<br>
+        ：還不行，等到吃完晚餐吧<br>
+        ：晚餐還要半個小時才會好耶⋯<br>
+        </p>
+        <p id="text2" style="display:none">
+        ：為什麼只有弟弟可以選節目？<br>
+        </p>
+        <p id="text3" style="display:none">
+        ：他還小，你多讓他一點<br>
+        ：你是女孩子，不讓弟弟看電視你還有理了？<br><br>
+        ：弟弟要看電視，你回房間去讀書！<br>
+        ：弟弟已經看一個小時了，該換我了吧<br>
+        </p>
+        <p id="text4" style="display:none">
+            ：你怎麼跟你母親一樣那麼小氣！<br>
+            你如果下次考試沒有100分你就去嫁人，<br>
+            你母親這個沒道德的人，有錢就說委屈離開了。<br>
+            ：你在那邊偷偷摸摸做什麼！你媽就是買了這個鬼東西才想離開我的！<br>
+            我跟你說，我已經找到你對象，你下禮拜就直接去住那，提早熟悉服侍他！<br>
+            我跟你講清楚，你被人家打，你也別想回來。<br>
+        </p>
+        <button onclick="nextstep()">Next</button>
+        <button onclick="exitsteps()" id="exitstep" style="display:none">Exit</button>
+        </div>
+    </div>
 
-    
+    <div id="no.lock">
+        <div id="screen" style="display:none">----</div>
+        <div class="pad" id="pad" style="display:none">
+            <button onclick="press(1)">1</button>
+            <button onclick="press(2)">2</button>
+            <button onclick="press(3)">3</button><br>
+            <button onclick="press(4)">4</button>
+            <button onclick="press(5)">5</button>
+            <button onclick="press(6)">6</button><br>
+            <button onclick="press(7)">7</button>
+            <button onclick="press(8)">8</button>
+            <button onclick="press(9)">9</button><br>
+            <button onclick="clearCode()">C</button>
+            <button onclick="press(0)">0</button>
+        </div>
+    </div>
+
+    <div class="lock" id="shapelock" style="display:none">
+        <div class="slot" onclick="nextShape(0)" id="slot0">-</div>
+        <div class="slot" onclick="nextShape(1)" id="slot1">-</div>
+        <div class="slot" onclick="nextShape(2)" id="slot2">-</div>
+        <div class="slot" onclick="nextShape(3)" id="slot3">-</div>
+    </div>
+
+    <div id="resulttt"></div>
 
 <div id="kitchenscene" style="display:none; position:relative; width:600px;">
     <img id="kitchen" src="kitchen.jpeg" style="width:800px">
@@ -492,6 +482,8 @@
 <div id="bedrscene" style="display:none; position:relative; width:600px;">
     <img id="bedroom" src="bedroom.jpeg" style="width:800px">
     <img id="keyb" src="keyb.png" style="width:800px;display:none">
+    <img id="drawer1_paper" src="drawer1_paper.jpg" style="width:400px;display:none">
+    <img id="drawer2_paper" src="drawer2_paper.jpg" style="width:400px;display:none">
     <div id="drawer1point"
         onclick="showMessage8()"
         style="
@@ -502,8 +494,8 @@
             height:20px;
             background:rgb(226, 71, 71);
             border-radius:50%;
-            cursor:pointer;
-             ">
+            cursor:pointer;"
+            >
     </div>
     <div id="d1unlock"
              style="
@@ -513,13 +505,14 @@
                 left:280px;
                 background:white;
                 padding:5px;
-                border:1px solid black;
-             ">
+                border:1px solid black;"
+                onclick="showpaper1()"
+             >
             圓孔...用圓鑰匙可以打開!<br>
             只放了一把木頭梳子…
     </div>
     <div id="drawer2point"
-        onclick="showmessage1()"
+        onclick="drawer2code()"
         style="
             position:absolute;
             top:380px;
@@ -528,23 +521,41 @@
             height:20px;
             background:rgb(226, 71, 71);
             border-radius:50%;
-            cursor:pointer;
-             ">
+            cursor:pointer;"
+            >
+
+    </div>
+    <div id="drawer2lock">
+        <div id="drawer2screen" style="display:none">----</div>
+        <div class="pad" id="drawer2pad" style="display:none">
+            <button onclick="press3(1)">1</button>
+            <button onclick="press3(2)">2</button>
+            <button onclick="press3(3)">3</button><br>
+            <button onclick="press3(4)">4</button>
+            <button onclick="press3(5)">5</button>
+            <button onclick="press3(6)">6</button><br>
+            <button onclick="press3(7)">7</button>
+            <button onclick="press3(8)">8</button>
+            <button onclick="press3(9)">9</button><br>
+            <button onclick="clearCode3()">C</button>
+            <button onclick="press3(0)">0</button>
+        </div>
     </div>
     <div id="d2unlock"
              style="
                 display:none;
                 position:absolute;
-                top:200px;
+                top:350px;
                 left:300px;
                 background:white;
                 padding:5px;
-                border:1px solid black;
-             ">
+                border:1px solid black;"
+                onclick="showpaper2()"
+                >
             這次是…一條手帕？怎麼都是一些小東西
     </div>
     <div id="drawer3point"
-        onclick="showMessage8()"
+        onclick="showMessage11()"
         style="
             position:absolute;
             top:410px;

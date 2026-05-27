@@ -53,8 +53,11 @@ function closeAllPanels() {
     const panels = [
         "tvmessage",
         "clockmessage",
+        "livingroomrelated",
         "pad",
         "result",
+        "smallpaper",
+        "papertext",
         "resulttt",
         "screen",
         "timePicker",
@@ -111,7 +114,6 @@ function showtvMessage() {
         document.getElementById("tvmessage").style.display = "block";
     }
 }    
-
 function remotecode() {
     const msg = document.getElementById("pad");
     if (msg.style.display === "block") {
@@ -197,8 +199,6 @@ function showMessage8() {
         document.getElementById("d1unlock").style.display = "block";
     }
 }
-
-
 function shapelock() {
     const msg = document.getElementById("shapelock");
     if (msg.style.display === "block") {
@@ -287,28 +287,24 @@ function exitsteps() {
 }
 
 function changetime() {
-    const msg3 = document.getElementById("timePicker");
-    if (msg3.style.display === "block") {
+    if(timePicker ==='block'){
         closeAllPanels();
-    }
-    else{
-        document.getElementById("timePicker").style.display = "block";
+    }else{
         const timePicker = document.getElementById("timePicker");
-        const result = document.getElementById("result");
-
-        timePicker.addEventListener("input", () => {
+        timePicker.style.display = "block";
+        timePicker.oninput = function () {
             const selectedTime = timePicker.value;
             console.log(selectedTime);
             if (selectedTime === "19:30") {
                 document.getElementById("papertext").style.display = "block";
                 document.getElementById("smallpaper").style.display = "block";
-            }
-            else{
-                document.getElementById("resulttt").innerHTML = "沒反應呢....."
-            }
-        });
-    }   
+            } 
+        };
 }
+
+
+}
+
 
 let code = "";
 function press(number) {
@@ -643,4 +639,45 @@ function exitsteps2() {
     document.getElementById("gotoending").style.display = "block";
 }
 
+function showpaper1(){
+    document.getElementById("drawer1_paper").style.display ="block";
+}
 
+function showpaper2(){
+    document.getElementById("drawer2_paper").style.display ="block";
+}
+
+function drawer2code(){
+    const msg = document.getElementById("drawer2pad");
+    if (msg.style.display === "block") {
+        msg.style.display = "none";
+        document.getElementById("drawer2screen").style.display = "none";
+    }
+    else{
+    document.getElementById("drawer2pad").style.display = "block";
+    document.getElementById("drawer2screen").style.display = "block";
+    }
+}
+let code3="";
+function press3(number3) {
+    if (code3.length >= 4) return;
+    code3 += number3;
+    document.getElementById("drawer2screen").innerText = code3;
+    if (code3.length === 4) {
+        checkCode3();
+    }
+}
+function checkCode3() {
+    if (code3 === "4761") {
+        document.getElementById("d2unlock").style.display = "block";
+    }
+    else {
+        document.getElementById("result").innerHTML = "看來不是這個數字...試試看別的吧";
+        document.getElementById("result").style.display = "block";
+
+    }
+}
+function clearCode3() {
+    code3 = "";
+    document.getElementById("drawer2screen").innerText = "----";
+}
