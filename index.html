@@ -555,7 +555,7 @@
             這次是…一條手帕？怎麼都是一些小東西
     </div>
     <div id="drawer3point"
-        onclick="showMessage11()"
+        onclick="drawer3code()"
         style="
             position:absolute;
             top:410px;
@@ -567,11 +567,27 @@
             cursor:pointer;
              ">
     </div>
+    <div id="drawer3lock">
+        <div id="drawer3screen" style="display:none">----</div>
+        <div class="pad" id="drawer3pad" style="display:none">
+            <button onclick="press4(1)">1</button>
+            <button onclick="press4(2)">2</button>
+            <button onclick="press4(3)">3</button><br>
+            <button onclick="press4(4)">4</button>
+            <button onclick="press4(5)">5</button>
+            <button onclick="press4(6)">6</button><br>
+            <button onclick="press4(7)">7</button>
+            <button onclick="press4(8)">8</button>
+            <button onclick="press4(9)">9</button><br>
+            <button onclick="clearCode4()">C</button>
+            <button onclick="press4(0)">0</button>
+        </div>
+    </div>
     <div id="d3unlock"
              style="
                 display:none;
                 position:absolute;
-                top:200px;
+                top:400px;
                 left:300px;
                 background:white;
                 padding:5px;
@@ -730,7 +746,7 @@
             style="width:60px;height:60px;font-size:30px;">
             8
     </button>
-
+    <div id="steamerresult"></div>
 </div>
 
 <div class="ending" id="endingfeature" style="display:none">
