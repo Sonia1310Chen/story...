@@ -52,12 +52,12 @@ nextBtn.addEventListener('click', () => {
 function closeAllPanels() {
     const panels = [
         "tvmessage",
+        "papertext",
+        "smallpaper",
         "clockmessage",
         "livingroomrelated",
         "pad",
         "result",
-        "smallpaper",
-        "papertext",
         "resulttt",
         "screen",
         "timePicker",
@@ -98,6 +98,8 @@ function closeAllPanels() {
         }
     });
 }
+
+
 
 function collectItem(itemName) {
     if (!inventory.includes(itemName)) {
@@ -203,7 +205,6 @@ function showMessage8() {
         document.getElementById("d1unlock").style.display = "block";
     }
 }
-
 function shapelock() {
     const msg = document.getElementById("shapelock");
     if (msg.style.display === "block") {
@@ -291,11 +292,20 @@ function exitsteps() {
     document.getElementById("dialogueBox").style.display = "none";
 }
 
+const timePicker = document.getElementById("timePicker");
 function changetime() {
-    if(timePicker ==='block'){
-        closeAllPanels();
-    }else{
-        const timePicker = document.getElementById("timePicker");
+    document.getElementById("tvmessage").style.display = "none";
+    document.getElementById("passshape").style.display = "none";
+    document.getElementById("cookie1").style.display = "none";
+    document.getElementById("cookie2").style.display = "none";
+    document.getElementById("pad").style.display = "none";
+    document.getElementById("screen").style.display = "none";
+    document.getElementById("cookie3").style.display = "none";
+    document.getElementById("livrdialogue").style.display = "none";
+    document.getElementById("key").style.display = "none";
+    document.getElementById("clockmessage").style.display = "none";
+    document.getElementById("shapelock").style.display = "none";
+    if (timePicker.style.display === 'none'){
         timePicker.style.display = "block";
         timePicker.oninput = function () {
             const selectedTime = timePicker.value;
@@ -305,8 +315,10 @@ function changetime() {
                 document.getElementById("smallpaper").style.display = "block";
             } 
         };
-}
-
+    }
+    else{
+        closeAllPanels();
+    }
 
 }
 
@@ -372,7 +384,7 @@ function checkCode2() {
     }
 }
 function clearCode2() {
-    code1 = "";
+    code2 = "";
     document.getElementById("screen2").innerText = "----";
 }
 
