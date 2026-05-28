@@ -9,9 +9,14 @@ const script = [
     { name: "偵探", text: "是個現代化的的廚房呢！居然還有烤箱，不過沒有瓦斯爐，看來是用灶台煮飯？是特地保留磚頭風格嗎？" },
     { name: "偵探", text: "text of skip" },
     { name: "偵探", text: "看來是這個房間了，（推門）房間居然那麼樸素嗎？" },
-    { name: "偵探", text: "text of skip2" }
+    { name: "偵探", text: "text of skip2" },
+    { name: "偵探", text: "這些就是我找到的關於您的奶奶的回憶物品，以及這份文件幫你整理了奶奶的童年故事，就讓你決定該如何運用吧。" },
+    { name: "孫子", text: "⋯謝謝您。" },
+    { name: "孫子", text: "心道：這些回憶對奶奶來說應該會帶來痛苦吧，我還是不要告訴他好了，就用他在我們家的回憶來陪伴她就行了。" },
+    { name: "偵探", text: "text of skip3" },
 
 ];
+
 
 let currentStep = 0;
 let inventory = [];
@@ -46,7 +51,10 @@ nextBtn.addEventListener('click', () => {
         nextBtn.style.display = "none";
         document.getElementById("dialogue-box").style.display = "none";
     }
-    
+    if (currentStep === 14) {
+        document.getElementById("dialogue-box").style.display = "none";
+        document.getElementById("gotopoem").style.display = "block";
+    }
 });
 
 function closeAllPanels() {
@@ -55,10 +63,10 @@ function closeAllPanels() {
         "papertext",
         "smallpaper",
         "clockmessage",
-        "livingroomrelated",
         "pad",
         "result",
         "resulttt",
+        "steamerresult",
         "screen",
         "timePicker",
         "changetimeuse",
@@ -87,9 +95,14 @@ function closeAllPanels() {
         "puzzle",
         "puzzlelock",
         "drawer2_paper",
+        "drawer2pad",
+        "drawer2screen",
+        "drawer3pad",
+        "drawer3screen",
         "drawer1_paper",
         "d1unlock",
-        "d2unlock"
+        "d2unlock",
+        "d3unlock"
     ];
     panels.forEach(id => {
         const el = document.getElementById(id);
@@ -158,6 +171,7 @@ function showMessage5() {
     }
     else{
         closeAllPanels();
+        document.getElementById("stovemessage").style.display = "block";
         document.getElementById("elfwords").style.display = "block";
         document.getElementById("stovemessage2").style.display = "block";
     }
@@ -248,8 +262,9 @@ function showDialogue() {
     }
     else{
         closeAllPanels();
-        document.getElementById("dialogueBox").style.display = "block";
         document.getElementById("dtext").style.display = "none";
+        document.getElementById("dialogueBox").style.display = "block";
+        
     }
 }
 let current = 0;
@@ -442,11 +457,10 @@ function exitsteps1() {
 function shapelockk() {
     const msg = document.getElementById("shapelockk");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-        document.getElementById("kwpass").style.display = "none";
-        document.getElementById("stickynote").style.display = "none";
+        closeAllPanels();
     }
-    else {
+    else{
+        closeAllPanels();
         document.getElementById("kwlocked").style.display = "block";
         msg.style.display = "block";
         nextShapek(indexk);
@@ -485,6 +499,7 @@ function toroom() {
     currentStep++;
     document.getElementById("dialogue-box").style.display = "block";
     nextBtn.style.display = "block";
+    closeAllPanels();
     document.getElementById("kitchenscene").style.display = "none";
     document.getElementById("resulttt").style.display = "none";
     document.getElementById("gotoroom").style.display = "none";
@@ -511,20 +526,14 @@ const correctBoard = [
 ];
 
 function showPuzzle(){
-
     const msg = document.getElementById("puzzlelock");
-
-    if(msg.style.display === "block"){
-        document.getElementById("puzzle").style.display = "none";
-        msg.style.display = "none";
-
+    if (msg.style.display === "block") {
+        closeAllPanels();
     }
     else{
-
         msg.style.display = "block";
         document.getElementById("puzzle").style.display = "block";
         drawPuzzle();
-
     }
 
 }
@@ -590,15 +599,27 @@ function checkPuzzle(){
             break;
         }
     }
-    if(correct)document.getElementById("steamerresult").innerHTML = "上方有我最喜歡也最討厭的東西，如果我早一點出生就好了!";
+    if(correct){
+        document.getElementById("steamerresult").innerHTML = "上方有我最喜歡也最討厭的東西，如果我早一點出生就好了!";
+    }
 }
 
 function toending() {
     document.getElementById("bedrscene").style.display = "none";
-    document.getElementById("gotoending").style.display = "none";
+    currentStep++;
+    document.getElementById("dialogue-box").style.display = "block";
+    nextBtn.style.display = "block";
+    closeAllPanels();
+}
+
+function topoem(){
+    document.getElementById("gotopoem").style.display = "none";
+    document.getElementById("game-container").style.display = "none";
+    nextBtn.style.display = "none";
     const ending = document.getElementById("endingfeature");
     ending.style.display = "flex";
     startEndingAnimation();
+    document.getElementById("developingdetails").style.display = "block";
 }
 
 function showDialoguebdr() {
@@ -678,13 +699,14 @@ function showpaper2(){
 function drawer2code(){
     const msg = document.getElementById("drawer2pad");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-        document.getElementById("drawer2screen").style.display = "none";
+        closeAllPanels();
     }
     else{
-    document.getElementById("drawer2pad").style.display = "block";
-    document.getElementById("drawer2screen").style.display = "block";
+        closeAllPanels();
+        document.getElementById("drawer2pad").style.display = "block";
+        document.getElementById("drawer2screen").style.display = "block";
     }
+    
 }
 let code3="";
 function press3(number3) {
@@ -712,12 +734,14 @@ function clearCode3() {
 function drawer3code(){
     const msg = document.getElementById("drawer3pad");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-        document.getElementById("drawer3screen").style.display = "none";
+        closeAllPanels();
+        document.getElementById("result").style.display = "none";
+        
     }
     else{
-    document.getElementById("drawer3pad").style.display = "block";
-    document.getElementById("drawer3screen").style.display = "block";
+        closeAllPanels();
+        document.getElementById("drawer3pad").style.display = "block";
+        document.getElementById("drawer3screen").style.display = "block";
     }
 }
 let code4="";
