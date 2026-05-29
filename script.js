@@ -102,7 +102,8 @@ function closeAllPanels() {
         "drawer1_paper",
         "d1unlock",
         "d2unlock",
-        "d3unlock"
+        "d3unlock",
+        "keyb"
     ];
     panels.forEach(id => {
         const el = document.getElementById(id);
@@ -600,12 +601,13 @@ function checkPuzzle(){
         }
     }
     if(correct){
-        document.getElementById("steamerresult").innerHTML = "上方有我最喜歡也最討厭的東西，如果我早一點出生就好了!";
+        document.getElementById("steamerresult").style.display = "block";
     }
 }
 
 function toending() {
     document.getElementById("bedrscene").style.display = "none";
+    document.getElementById("gotoending").style.display = "none";
     currentStep++;
     document.getElementById("dialogue-box").style.display = "block";
     nextBtn.style.display = "block";
@@ -625,9 +627,10 @@ function topoem(){
 function showDialoguebdr() {
     const msg = document.getElementById("dialogueBox2");
     if (msg.style.display === "block") {
-        msg.style.display = "none";
-        document.getElementById("beforediarytext").style.display = "none";
-    } else {
+        closeAllPanels();
+    }
+    else{
+        closeAllPanels();
         msg.style.display = "block";
         document.getElementById("beforediarytext").style.display = "block";
     }
@@ -756,6 +759,8 @@ function press4(number4) {
 function checkCode4() {
     if (code4 === "1594") {
         document.getElementById("d3unlock").style.display = "block";
+        document.getElementById("keyb").style.display = "block";
+        collectItem("書鑰匙");
     }
     else {
         document.getElementById("result").innerHTML = "看來不是這個數字...試試看別的吧";

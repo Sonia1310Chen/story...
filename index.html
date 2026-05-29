@@ -125,16 +125,12 @@
     <button id="gotokitchen" onclick="tokitchen()" style="display:none">Go to kitchen</button>
     <button id="gotoroom" onclick="toroom()" style="display:none">Go to bedroom</button>
     <button id="gotoending" onclick="toending()" style="display:none">Go to ending</button>
-    <button id="gotopoem" onclick="topoem()" style="display:none">Go to real ending</button>
     </div>
 
 </div>
 </div>
 <div id=livingroomrelated>
-        <img id="passshape" src="passshape.jpg" style="width:400px;display:none">
-        <img id="cookie1" src="cookie1.jpeg" style="width:500px;display:none">
-        <img id="cookie2" src="cookie2.jpeg" style="width:500px;display:none">
-        <img id="cookie3" src="cookie3.jpeg" style="width:500px;display:none">
+        <img id="passshape" src="passshape.jpeg" style="width:400px;display:none">
         <img id="key" src="key.jpg" style="width:300px;display:none">
         <button onclick="tokitchen()" id="tokitchen" style="display:none">Moveon</button>
         <div id="smallpaper"
@@ -166,13 +162,16 @@
         <div id="dialogueBox"
         style="
         width: 800px;
-        height: 300px;
+        height: 400px;
         background: black;
         color: white;
         padding: 30px;
         margin-top: 20px;
         display: none;
         ">
+        <img id="cookie1" src="cookie1.jpeg" style="width:500px;display:none">
+        <img id="cookie2" src="cookie2.jpeg" style="width:500px;display:none">
+        <img id="cookie3" src="cookie3.jpeg" style="width:500px;display:none">
         <p id="text1">
         ：這個黑色的方塊是什麼？<br>
         ：這是最時髦的電視，你母親買的<br>
@@ -201,6 +200,7 @@
         <button onclick="nextstep()">Next</button>
         <button onclick="exitsteps()" id="exitstep" style="display:none">Exit</button>
         </div>
+        <div id="seeimg" style="display:none"></div>
     </div>
 
     <div id="no.lock">
@@ -374,8 +374,68 @@
      padding:10px;
      border:3px solid brown;
      ">
+    <div id="puzzle" style="display:none">
+        <button id="s0"
+                onclick="moveSteamer(0)"
+                style="width:60px;height:60px;font-size:30px;">
+                1
+        </button>
+    
+        <button id="s1"
+                onclick="moveSteamer(1)"
+                style="width:60px;height:60px;font-size:30px;">
+                3
+        </button>
+    
+        <button id="s2"
+                onclick="moveSteamer(2)"
+                style="width:60px;height:60px;font-size:30px;">
+                6
+        </button>
+    
+        <br>
+    
+        <button id="s3"
+                onclick="moveSteamer(3)"
+                style="width:60px;height:60px;font-size:30px;">
+                5
+        </button>
+    
+        <button id="s4"
+                onclick="moveSteamer(4)"
+                style="width:60px;height:60px;font-size:30px;">
+                
+        </button>
+    
+        <button id="s5"
+                onclick="moveSteamer(5)"
+                style="width:60px;height:60px;font-size:30px;">
+                2
+        </button>
+    
+        <br>
+    
+        <button id="s6"
+                onclick="moveSteamer(6)"
+                style="width:60px;height:60px;font-size:30px;">
+                4
+        </button>
+    
+        <button id="s7"
+                onclick="moveSteamer(7)"
+                style="width:60px;height:60px;font-size:30px;">
+                7
+        </button>
+    
+        <button id="s8"
+                onclick="moveSteamer(8)"
+                style="width:60px;height:60px;font-size:30px;">
+                8
+        </button>
+    
     </div>
-
+    </div>
+    <div id="steamerresult" style="display:none">上方有我最喜歡也最討厭的東西，如果我早一點出生就好了!</div>
     <div id="kitchenwarepoint"
         onclick="shapelockk()"
         style="
@@ -489,7 +549,7 @@
 
 <div id="bedrscene" style="display:none; position:relative; width:600px;">
     <img id="bedroom" src="bedroom.jpeg" style="width:800px">
-    <img id="keyb" src="keyb.png" style="width:800px;display:none">
+    <img id="keyb" src="keyb.png" style="width:400px;display:none">
     <img id="drawer1_paper" src="drawer1_paper .jpeg" style="width:400px;display:none">
     <img id="drawer2_paper" src="drawer2_paper .jpeg" style="width:400px;display:none">
     <div id="drawer1point"
@@ -616,7 +676,7 @@
             cursor:pointer;
              ">
     </div>
-    <div id="steamerresult"></div>
+    
     <div id="beforediarytext" style="display:none">連日記本都是上鎖的嗎？？<br>
         為何奶奶這麼防備人…沒辦法了，還是一個一個抽屜打開檢查吧。<br>
         (用書形鑰匙開鎖)：密密麻麻的紀錄呢！<br>
@@ -697,66 +757,7 @@
     </div>
 </div>
 
-<div id="puzzle" style="display:none">
-    <button id="s0"
-            onclick="moveSteamer(0)"
-            style="width:60px;height:60px;font-size:30px;">
-            1
-    </button>
 
-    <button id="s1"
-            onclick="moveSteamer(1)"
-            style="width:60px;height:60px;font-size:30px;">
-            3
-    </button>
-
-    <button id="s2"
-            onclick="moveSteamer(2)"
-            style="width:60px;height:60px;font-size:30px;">
-            6
-    </button>
-
-    <br>
-
-    <button id="s3"
-            onclick="moveSteamer(3)"
-            style="width:60px;height:60px;font-size:30px;">
-            5
-    </button>
-
-    <button id="s4"
-            onclick="moveSteamer(4)"
-            style="width:60px;height:60px;font-size:30px;">
-            
-    </button>
-
-    <button id="s5"
-            onclick="moveSteamer(5)"
-            style="width:60px;height:60px;font-size:30px;">
-            2
-    </button>
-
-    <br>
-
-    <button id="s6"
-            onclick="moveSteamer(6)"
-            style="width:60px;height:60px;font-size:30px;">
-            4
-    </button>
-
-    <button id="s7"
-            onclick="moveSteamer(7)"
-            style="width:60px;height:60px;font-size:30px;">
-            7
-    </button>
-
-    <button id="s8"
-            onclick="moveSteamer(8)"
-            style="width:60px;height:60px;font-size:30px;">
-            8
-    </button>
-
-</div>
 
 <div class="ending" id="endingfeature" style="display:none">
 
@@ -870,19 +871,18 @@
 </script>
 
 </div>
-<div id="developingdetails" style="display:none;font-size: 12px; font-family: 'Courier New', serif;">
+<div id="developingdetails" style="display:none;font-size: 22px; font-family: 'Courier New', serif;">
     <br>
     Directed by Naomi, Sonia<br>
-
-    Designed by Naomi<br><br>
-
+    Designed by Naomi<br>
     Developed by Sonia<br><br>
 
     Special thanks to:<br>
     Gemini & ChatGPT: Debugging Assistant<br><br>
 
-    And to everyone who helped along the way. <br>    
+    And to everyone who helped along the way. <br><br>
 </div>
+
     <div id="game-container" >
         <div id="status-bar"><br>
             <span>背包：<span id="inventory-list">無</span></span>
@@ -894,7 +894,8 @@
             <button id="next-btn">下一步</button><br><br>
         </div>
     </div>
-        
+    <button id="gotopoem" onclick="topoem()" style="display:none">Go to real ending</button>
+
     <script src="script.js"></script>
 </body>
 
