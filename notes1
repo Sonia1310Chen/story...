@@ -191,3 +191,35 @@ button:hover {
     border:
         2px solid #38bdf8;
 }
+
+const timePicker = document.getElementById("timePicker");
+function changetime() {
+    
+    if (timePicker.style.display === 'block'){
+        closeAllPanels();
+    }else{
+        timePicker.style.display = "block";
+        timePicker.oninput = function () {
+            const selectedTime = timePicker.value;
+            console.log(selectedTime);
+            if (selectedTime === "19:30") {
+                document.getElementById("papertext").style.display = "block";
+                document.getElementById("smallpaper").style.display = "block";
+            } 
+        };
+    document.getElementById("tvmessage").style.display = "none";
+    document.getElementById("passshape").style.display = "none";
+    document.getElementById("cookie1").style.display = "none";
+    document.getElementById("cookie2").style.display = "none";
+    document.getElementById("pad").style.display = "none";
+    document.getElementById("screen").style.display = "none";
+    document.getElementById("cookie3").style.display = "none";
+    document.getElementById("livrdialogue").style.display = "none";
+    document.getElementById("key").style.display = "none";
+    document.getElementById("clockmessage").style.display = "none";
+    document.getElementById("shapelock").style.display = "none";
+    
+}
+
+
+}
