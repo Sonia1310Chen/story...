@@ -58,6 +58,9 @@ nextBtn.addEventListener('click', () => {
 });
 
 function closeAllPanels() {
+    document.getElementById("ncookie1").style.display = "none";
+    document.getElementById("ncookie2").style.display = "none";
+    document.getElementById("ncookie3").style.display = "none";
     const panels = [
         "tvmessage",
         "papertext",
@@ -220,6 +223,22 @@ function showMessage8() {
         document.getElementById("d1unlock").style.display = "block";
     }
 }
+function showimage() {
+    const msg = document.getElementById("ncookie1");
+    if (msg.style.display === "block") {
+        closeAllPanels();
+        document.getElementById("ncookie1").style.display = "none";
+        document.getElementById("ncookie2").style.display = "none";
+        document.getElementById("ncookie3").style.display = "none";
+    }
+    else{
+        closeAllPanels();
+        document.getElementById("ncookie1").style.display = "block";
+        document.getElementById("ncookie2").style.display = "block";
+        document.getElementById("ncookie3").style.display = "block";
+    }
+    
+}
 function shapelock() {
     const msg = document.getElementById("shapelock");
     if (msg.style.display === "block") {
@@ -265,10 +284,9 @@ function showDialogue() {
         closeAllPanels();
         document.getElementById("dtext").style.display = "none";
         document.getElementById("dialogueBox").style.display = "block";
-        
     }
 }
-let current = 0;
+let current = 1;
 function nextstep() {
     document.getElementById("text1").style.display = "none";
     document.getElementById("text2").style.display = "none";
@@ -300,12 +318,14 @@ function nextstep() {
     }
     else if (current === 7) {
         document.getElementById("text4").style.display = "block";
-    }else if (current === 8) {
+    }
+    else if (current === 8) {
         document.getElementById("exitstep").style.display = "block";
     }
 }
 function exitsteps() {
     document.getElementById("dialogueBox").style.display = "none";
+    document.getElementById("showcookies").style.display = "block";
 }
 
 const timePicker = document.getElementById("timePicker");
@@ -411,6 +431,7 @@ function tokitchen() {
     document.getElementById("livingroomrelated").style.display = "none";
     document.getElementById("livrscene").style.display = "none";
     document.getElementById("livrdialogue").style.display = "none";
+    document.getElementById("showcookies").style.display = "block";
     document.getElementById("shapelock").style.display = "none";
     document.getElementById("resulttt").style.display = "none";
     document.getElementById("no.lock").style.display = "none";
@@ -430,10 +451,9 @@ let current11 = 1;
 function nextstep1() {
     document.getElementById("text11").style.display = "none";
     document.getElementById("text12").style.display = "none";
-
     current11++;
     if (current11 === 1) {
-        document.getElementById("text11").style.display = "block";
+    document.getElementById("text11").style.display = "block";
     }
     else if (current11 === 2) {
         document.getElementById("text12").style.display = "block";

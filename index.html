@@ -118,14 +118,15 @@
         <div id="result"></div>
     </div>
 
-    <div class="buttons">
+    <div class="buttons" style="display:none">
     <button onclick="tokitchen()">jumptokitchen</button>
     <button onclick="toroom()">jumptobedroom</button>
     <button onclick="toending()" >jumptotending</button>
+    
+    </div>
     <button id="gotokitchen" onclick="tokitchen()" style="display:none">Go to kitchen</button>
     <button id="gotoroom" onclick="toroom()" style="display:none">Go to bedroom</button>
     <button id="gotoending" onclick="toending()" style="display:none">Go to ending</button>
-    </div>
 
 </div>
 </div>
@@ -151,8 +152,10 @@
         </div>
         </div>
         
-
     </div>
+    <img id="ncookie1" src="cookie1.jpeg" style="width:500px;display:none">
+    <img id="ncookie2" src="cookie2.jpeg" style="width:500px;display:none">
+    <img id="ncookie3" src="cookie3.jpeg" style="width:500px;display:none">
     <div id="livrdialogue">
         <div id="dtext" style="display:none">
         這個餅乾聽我爸說很好吃，可惜我出生的時候就已經停產了...裡面會有東西嗎?<br>
@@ -201,6 +204,7 @@
         <button onclick="exitsteps()" id="exitstep" style="display:none">Exit</button>
         </div>
         <div id="seeimg" style="display:none"></div>
+        <button onclick="showimage()" id="showcookies" style="display:none">See the cookie clues again</button>
     </div>
 
     <div id="no.lock">
