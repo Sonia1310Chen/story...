@@ -397,6 +397,7 @@ function checkCode1() {
         document.getElementById("pickupckey").style.display = "block";
     }
     if (hasAllKeys()) {
+        alert('x');
         document.getElementById("gotoroom").style.display = "block";
     }
 }
@@ -417,6 +418,9 @@ function press2(number2) {
 function checkCode2() {
     if (code2 === "0531") {
         showDialogue1();
+    }
+    if (hasAllKeys()) {
+        document.getElementById("gotoroom").style.display = "block";
     }
 }
 function clearCode2() {
@@ -531,6 +535,7 @@ function takekey() {
     document.getElementById("keyk1").style.display = "none";
     document.getElementById("pad1").style.display = "none";
     collectItem('圓鑰匙');
+    if(hasAllKeys()) document.getElementById("gotoroom").style.display = "block";
     document.getElementById("pickupckey").style.display = "none";
 }
 
@@ -643,15 +648,22 @@ function topoem(){
     startEndingAnimation();
     document.getElementById("developingdetails").style.display = "block";
 }
-
+function diarykey(){
+    return inventory.includes("書鑰匙");
+}
 function showDialoguebdr() {
-    const msg = document.getElementById("dialogueBox2");
-    if (msg.style.display === "block") {
-        closeAllPanels();
+    if (diarykey()) {
+        const msg = document.getElementById("dialogueBox2");
+        if (msg.style.display === "block") {
+            closeAllPanels();
+        }
+        else{
+            closeAllPanels();
+            msg.style.display = "block";
+            
+        }
     }
     else{
-        closeAllPanels();
-        msg.style.display = "block";
         document.getElementById("beforediarytext").style.display = "block";
     }
 }
